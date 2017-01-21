@@ -27,15 +27,9 @@ TimeNotify.init = function(self, scene, options)
 		self:wait(2);
 
 		-- Fade
-		local fadeStart = self:getTime();
-		while true do
-			local t = self:timeSince(fadeStart) / .5;
-			entity._alpha = 1 - t;
-			if entity._alpha <= 0 then
-				break;
-			end
-			self:waitFrame();
-		end
+		self:tween(1, 0, .5, nil, function(v)
+			entity._alpha = v;
+		end );
 
 		entity:despawn();
 	end);
