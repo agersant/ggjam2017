@@ -21,7 +21,7 @@ Entity.isUpdatable = function( self )
 end
 
 Entity.isDrawable = function( self )
-	return self.render ~= nil;
+	return self.render ~= nil or self._sprite;
 end
 
 Entity.addedToScene = function(self)
@@ -51,6 +51,9 @@ Entity.signal = function(self, signal, ...)
 	self._scriptRunner:signal(signal, ...);
 end
 
+
+-- PHYSICS
+
 Entity.destroy = function(self)
 	if self._body then
 		self._body:destroy();
@@ -58,11 +61,25 @@ Entity.destroy = function(self)
 end
 
 
+-- ANIMATION
+
+Entity.addSprite = function(self, sprite)
+	self._sprite = sprite;
+end
+
+Entity.playAnimation = function(self, anim)
+	assert(self._sprite);
+	self._sprite:playAnimation(anim);
+end
+
 -- CORE
 
 Entity.update = function(self, dt)
 	if self._scriptRunner then
 		self._scriptRunner:update(dt);
+	end
+	if self._sprite then
+		self._sprite:update(dt);
 	end
 end
 

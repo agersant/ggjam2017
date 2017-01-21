@@ -16,14 +16,15 @@ end
 
 AnimatedSprite.update = function(self, dt)
 	self._animTime = self._animTime + dt;
-	local p = (self._currentAnim % self._duration) / self._duration;
-	local currentFrame = math.ceil(p * self._currentAnim.frames);
+	local p = (self._animTime % self._duration) / self._duration;
+	local currentFrame = math.ceil(p * #self._currentAnim.frames);
 	self._image = self._currentAnim.frames[currentFrame];
 end
 
 AnimatedSprite.render = function(self, x, y)
 	if self._image then
-		love.graphics.draw(self._image, x, y);
+		local w, h = self._image:getDimensions();
+		love.graphics.draw(self._image, x -w/2, y -h/2);
 	end
 end
 

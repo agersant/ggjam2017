@@ -2,6 +2,7 @@ require("src/utils/OOP");
 local Debug = require("src/Debug");
 local Entity = require("src/utils/Entity");
 local Script = require("src/utils/Script");
+local AnimatedSprite = require("src/gfx/AnimatedSprite");
 
 local Fish = Class("Fish", Entity);
 Fish.sparky = {
@@ -28,7 +29,6 @@ Fish.init = function(self, scene, options)
 	self._totalPickups = 0;
 	self._angularSpeed = 4;
 	self._player = options.player;
-	self._image = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
 	self._bodyRadius = 10;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
@@ -40,10 +40,17 @@ Fish.init = function(self, scene, options)
 	self._fixture = love.physics.newFixture(self._body, self._shape);
 	self._fixture:setCategory(Entity.PHYSICS_TAG.FISH);
 	self._fixture:setRestitution(.9);
+
+	local spriteData = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
+	self:addSprite(AnimatedSprite:new(spriteData));
+	self:playAnimation("idle");
 end
 
 
 Fish.update = function(self, dt)
+
+	Fish.super.update(self, dt);
+
 	local xs = 0;
 	if love.keyboard.isDown(self._player.left) then
 		xs = -1; 
@@ -61,14 +68,13 @@ end
 
 Fish.render = function(self)
 	local x, y = self._body:getPosition();
-	local imageWidth, imageHeight = self._image:getDimensions();
 	local angle = self._body:getAngle();
 	love.graphics.push()
 	love.graphics.translate(x, y);
 	love.graphics.rotate(angle);
 
 	love.graphics.setColor(255, 255, 255, 255);
-	love.graphics.draw(self._image, -imageWidth / 2, -imageHeight / 2 - 8);
+	self._sprite:render(0, -8);
 	love.graphics.pop();
 
 	if gDrawPhysics then

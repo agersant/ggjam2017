@@ -14,8 +14,20 @@ gAssets = {
 
 
 love.load = function()
-	gAssets.CHAR.sparky = love.graphics.newImage( "assets/sprites/sparky_base.png" );
-	gAssets.CHAR.other = love.graphics.newImage( "assets/sprites/otherfish_base.png" );
+	gAssets.CHAR.sparky = {
+		idle = {
+			frames = {
+				love.graphics.newImage( "assets/sprites/sparky_base.png" ),
+			},
+		},
+	};
+	gAssets.CHAR.other = {
+		idle = {
+			frames = {
+				love.graphics.newImage( "assets/sprites/otherfish_base.png" ),
+			},
+		},
+	};
 	local scene = GameScene:new();
 	Scene:setCurrent(scene);
 end
@@ -24,7 +36,7 @@ love.update = function(dt)
 	Scene:getCurrent():update(dt);
 end
 
-love.draw= function()
+love.draw = function()
 	Scene:getCurrent():draw();
 end
 
