@@ -3,10 +3,18 @@ local Script = require("src/utils/Script");
 local Scene = require("src/utils/Scene");
 local GameScene = require("src/GameScene");
 
+gAssets = {
+	BG = {},
+	CHAR = {},
+	SOUND = {},
+	MUSIC = {},
+}
 
 love.load = function()
 	local scene = GameScene:new();
 	Scene:setCurrent(scene);
+	gAssets.CHAR.sparky = love.graphics.newImage( "assets/sprites/sparky_base.png" );
+	gAssets.CHAR.other = love.graphics.newImage( "assets/sprites/otherfish_base.png" );
 end
 
 love.update = function(dt)

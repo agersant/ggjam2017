@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="28" tileheight="28" nextobjectid="17">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="28" tileheight="28" nextobjectid="11">
  <objectgroup name="Object Layer 1">
-  <object id="2" name="Collect" type="pickup" x="0" y="224" width="28" height="28">
+  <object id="1" name="Collect0" type="pickup" x="224" y="0" width="28" height="28">
    <properties>
     <property name="chunk" value="0"/>
     <property name="ent" value="0"/>
    </properties>
   </object>
-  <object id="3" name="Collect" type="pickup" x="112" y="112" width="28" height="28">
+  <object id="2" name="Collect1" type="pickup" x="168" y="168" width="28" height="28">
    <properties>
     <property name="chunk" value="0"/>
     <property name="ent" value="1"/>
    </properties>
   </object>
-  <object id="4" name="Collect" type="pickup" x="280" y="56" width="28" height="28">
+  <object id="3" name="Collect2" type="pickup" x="56" y="56" width="28" height="28">
    <properties>
     <property name="chunk" value="0"/>
     <property name="ent" value="2"/>
    </properties>
   </object>
-  <object id="5" name="Collect" type="pickup" x="448" y="28" width="28" height="28">
+  <object id="4" name="Collect3" type="pickup" x="336" y="0" width="28" height="28">
    <properties>
     <property name="chunk" value="1"/>
     <property name="ent" value="3"/>
    </properties>
   </object>
-  <object id="6" name="Collect" type="pickup" x="504" y="140" width="28" height="28">
+  <object id="5" name="Collect3" type="pickup" x="504" y="28" width="28" height="28">
    <properties>
     <property name="chunk" value="1"/>
     <property name="ent" value="4"/>
    </properties>
   </object>
-  <object id="7" name="Collect" type="pickup" x="476" y="252" width="28" height="28">
+  <object id="6" name="Collect3" type="pickup" x="476" y="420" width="28" height="28">
    <properties>
     <property name="chunk" value="1"/>
     <property name="ent" value="5"/>
    </properties>
   </object>
-  <object id="8" name="Collect" type="pickup" x="84" y="308" width="28" height="28">
+  <object id="7" name="Collect3" type="pickup" x="336" y="224" width="28" height="28">
    <properties>
     <property name="chunk" value="2"/>
-    <property name="ent" value="8"/>
+    <property name="ent" value="6"/>
    </properties>
   </object>
-  <object id="9" name="Collect" type="pickup" x="224" y="420" width="28" height="28">
+  <object id="8" name="Collect3" type="pickup" x="196" y="392" width="28" height="28">
    <properties>
     <property name="chunk" value="2"/>
     <property name="ent" value="7"/>
    </properties>
   </object>
-  <object id="10" name="Collect" type="pickup" x="420" y="476" width="28" height="28">
+  <object id="9" name="Collect3" type="pickup" x="84" y="168" width="28" height="28">
    <properties>
     <property name="chunk" value="2"/>
-    <property name="ent" value="6"/>
+    <property name="ent" value="8"/>
    </properties>
   </object>
  </objectgroup>
