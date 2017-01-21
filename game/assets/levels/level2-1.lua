@@ -82,8 +82,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1",
-            ["ent"] = ""
+            ["chunk"] = "2",
+            ["ent"] = "8"
           }
         },
         {
@@ -98,7 +98,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1",
+            ["chunk"] = "2",
             ["ent"] = "7"
           }
         },
@@ -114,7 +114,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1",
+            ["chunk"] = "2",
             ["ent"] = "6"
           }
         },
@@ -130,7 +130,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2",
+            ["chunk"] = "1",
             ["ent"] = "5"
           }
         },
@@ -146,7 +146,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2",
+            ["chunk"] = "1",
             ["ent"] = "4"
           }
         },
@@ -162,7 +162,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2",
+            ["chunk"] = "1",
             ["ent"] = "3"
           }
         }
