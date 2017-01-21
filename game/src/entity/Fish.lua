@@ -110,4 +110,12 @@ Fish.pickedUpItem = function(self, pickup)
 	self:getScene():spawnPickup(level, self, self._lastPickupEnt + self._foresight);
 end
 
+Fish.getBubbleSprite = function(self)
+	if self._player.findex == Fish.sparky.findex then
+		return gAssets.CHAR.bubbleA;
+	else
+		return gAssets.CHAR.bubbleB;
+	end
+end
+
 return Fish;
