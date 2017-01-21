@@ -7,7 +7,7 @@ local Fish = Class("Fish", Entity);
 
 Fish.init = function(self, scene)
 	Fish.super.init(self, scene);
-	self._speed = 0.5;
+	self._force = 250;
 	self._angularSpeed = 4;
 	self._length = 35;
 
@@ -22,7 +22,6 @@ end
 
 
 Fish.update = function(self, dt)
-
 	local xs = 0;
 	if love.keyboard.isDown("left") then
 		xs = -1; 
@@ -30,11 +29,11 @@ Fish.update = function(self, dt)
 	if love.keyboard.isDown("right") then
 		xs = 1;
 	end
-	self._body:setAngularVelocity(xs * self._angularSpeed)
+	self._body:setAngularVelocity(xs * self._angularSpeed);
 
 	local angle = self._body:getAngle();
 	if love.keyboard.isDown("up") then
-		self._body:applyLinearImpulse(self._speed * math.cos(angle), self._speed * math.sin(angle));
+		self._body:applyLinearImpulse(self._force * math.cos(angle) * dt, self._force * math.sin(angle) * dt);
 	end
 end
 
