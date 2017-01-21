@@ -34,11 +34,27 @@ GameScene.init = function(self)
 	self._despawnedEntities = {};
 	
 	self._world = love.physics.newWorld(0, 0, false);
+	self:spawnEdges();
 
 	self:update(0);
 
 	self:spawn(Fish, {});
 	self:spawn(PickUp, {});
+end
+
+GameScene.spawnEdges = function(self)
+	local walls = {
+		{ x = -20, y = 280, w = 40, h = 560 },
+		{ x = 580, y = 280, w = 40, h = 560 },
+		{ x = 280, y = -20, w = 560, h = 40 },
+		{ x = 280, y = 580, w = 560, h = 40 },
+	};
+	for _, wall in pairs(walls) do
+		local body = love.physics.newBody(self._world, 0, 0, "static");
+		local shape = love.physics.newRectangleShape(wall.x, wall.y, wall.w, wall.h);
+		love.physics.newFixture(body, shape);
+	end
+	
 end
 
 GameScene.update = function(self, dt)

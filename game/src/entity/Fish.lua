@@ -7,10 +7,13 @@ local Fish = Class("Fish", Entity);
 
 Fish.init = function(self, scene)
 	Fish.super.init(self, scene);
-	self._speed = 60;
+	self._speed = 200;
 
 	self._body = love.physics.newBody( self._scene:getPhysicsWorld(), 0, 0, "dynamic" );
 	self._body:setPosition(100, 100);
+
+	self._shape = love.physics.newCircleShape(10);
+	self._fixture = love.physics.newFixture(self._body, self._shape);
 end
 
 
