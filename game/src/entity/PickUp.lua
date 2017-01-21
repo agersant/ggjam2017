@@ -1,6 +1,7 @@
 require("src/utils/OOP");
 local Debug = require("src/Debug");
 local Entity = require("src/utils/Entity");
+local Script = require("src/utils/Script");
 local Fish = require("src/entity/Fish");
 local TimeNotify = require("src/entity/TimeNotify");
 
@@ -15,18 +16,20 @@ PickUp.init = function(self, scene, entityData)
 	assert(self._fish);
 
 	self._ent = entityData.props.ent; -- use this for sorting the pickup order
-	self._x = entityData.props.x;
-	self._y = entityData.props.y;
+	self._xRef = entityData.props.x;
+	self._yRef = entityData.props.y;
 
 	self._image = self._fish:getBubbleSprite();
 	assert(self._image);
+
 end
 
 PickUp.addedToScene = function(self)
 	local physicsRadius = 20;
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
-	self._body:setPosition(self._x, self._y);
+	self._body:setPosition(self._xRef, self._yRef);
 	self._body:setUserData(self);
+	self._body:setLinearVelocity(0, math.random(-20, 20));
 	self._shape = love.physics.newCircleShape(physicsRadius);
 	self._fixture = love.physics.newFixture(self._body, self._shape);
 	self._fixture:setSensor(true);
@@ -36,11 +39,23 @@ PickUp.getPosition = function(self)
 	return self._body:getPosition();
 end
 
+PickUp.update = function(self, dt)
+
+	local x, y = self._body:getPosition();
+	if y > self._yRef + 8 then
+		self._body:applyLinearImpulse(0, dt * -100);
+	elseif y < self._yRef - 8 then
+		self._body:applyLinearImpulse(0, dt * 100);
+	end  
+
+	self._grabbable = self._ent == self._fish._lastPickupEnt + 1;
+end
+
 PickUp.render = function(self)
-	self._grabbable = self._ent == self._fish._lastPickupEnt + 1; -- This should be in an update function
 	love.graphics.setColor( 255, 255, 255, (self._grabbable and 255 or 63) );
 	local w, h = self._image:getDimensions();
-	love.graphics.draw(self._image, self._x - w/2, self._y - h/2);
+	local x, y = self._body:getPosition();
+	love.graphics.draw(self._image, x - w/2, y - h/2);
 	if gDrawPhysics then
 		Debug.drawCircleShape(self._body, self._shape);
 	end
