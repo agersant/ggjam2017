@@ -27,8 +27,8 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 0,
-          y = 224,
+          x = 28,
+          y = 196,
           width = 28,
           height = 28,
           rotation = 0,
@@ -43,8 +43,8 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 28,
-          y = 112,
+          x = 84,
+          y = 28,
           width = 28,
           height = 28,
           rotation = 0,
@@ -59,7 +59,7 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 84,
+          x = 280,
           y = 28,
           width = 28,
           height = 28,
@@ -75,8 +75,8 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 196,
-          y = 0,
+          x = 476,
+          y = 28,
           width = 28,
           height = 28,
           rotation = 0,
@@ -91,8 +91,8 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 448,
-          y = 28,
+          x = 476,
+          y = 420,
           width = 28,
           height = 28,
           rotation = 0,
@@ -107,8 +107,8 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 504,
-          y = 112,
+          x = 308,
+          y = 504,
           width = 28,
           height = 28,
           rotation = 0,
@@ -123,8 +123,8 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 532,
-          y = 224,
+          x = 84,
+          y = 476,
           width = 28,
           height = 28,
           rotation = 0,
@@ -139,7 +139,7 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 532,
+          x = 28,
           y = 336,
           width = 28,
           height = 28,
@@ -151,60 +151,12 @@ return {
           }
         },
         {
-          id = 10,
-          name = "Collect",
-          type = "pickup",
-          shape = "rectangle",
-          x = 504,
-          y = 420,
-          width = 28,
-          height = 28,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["chunk"] = "3",
-            ["ent"] = "9"
-          }
-        },
-        {
-          id = 11,
-          name = "Collect",
-          type = "pickup",
-          shape = "rectangle",
-          x = 448,
-          y = 504,
-          width = 28,
-          height = 28,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["chunk"] = "3",
-            ["ent"] = "10"
-          }
-        },
-        {
-          id = 12,
-          name = "Collect",
-          type = "pickup",
-          shape = "rectangle",
-          x = 252,
-          y = 532,
-          width = 28,
-          height = 28,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["chunk"] = "3",
-            ["ent"] = "11"
-          }
-        },
-        {
           id = 13,
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 308,
-          y = 0,
+          x = 504,
+          y = 224,
           width = 28,
           height = 28,
           rotation = 0,
@@ -212,54 +164,6 @@ return {
           properties = {
             ["chunk"] = "1",
             ["ent"] = "4"
-          }
-        },
-        {
-          id = 14,
-          name = "Collect",
-          type = "pickup",
-          shape = "rectangle",
-          x = 84,
-          y = 504,
-          width = 28,
-          height = 28,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["chunk"] = "4",
-            ["ent"] = "12"
-          }
-        },
-        {
-          id = 15,
-          name = "Collect",
-          type = "pickup",
-          shape = "rectangle",
-          x = 28,
-          y = 420,
-          width = 28,
-          height = 28,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["chunk"] = "4",
-            ["ent"] = "13"
-          }
-        },
-        {
-          id = 16,
-          name = "Collect",
-          type = "pickup",
-          shape = "rectangle",
-          x = 0,
-          y = 336,
-          width = 28,
-          height = 28,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["chunk"] = "4",
-            ["ent"] = "14"
           }
         }
       }
