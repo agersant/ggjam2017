@@ -57,4 +57,12 @@ Bumper.render = function(self)
 	end
 end
 
+Bumper.update = function(self)
+	local x, y = self._body:getPosition();
+	if math.abs(x) > 800 or math.abs(y) > 800 then
+		self:despawn();
+	end
+end
+
+
 return Bumper;
