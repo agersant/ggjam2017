@@ -12,3 +12,7 @@ end
 love.update = function(dt)
 	Scene:getCurrent():update(dt);
 end
+
+love.draw= function()
+	Scene:getCurrent():draw();
+end

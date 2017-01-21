@@ -11,11 +11,11 @@ Entity.init = function(self, scene)
 end
 
 Entity.isUpdatable = function( self )
-	return self._scriptRunner;
+	return self.update or self._scriptRunner;
 end
 
 Entity.isDrawable = function( self )
-	return false;
+	return self.render ~= nil;
 end
 
 

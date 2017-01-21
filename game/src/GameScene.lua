@@ -3,6 +3,7 @@ local Scene = require("src/utils/Scene");
 local Entity = require("src/utils/Entity");
 local TableUtils = require("src/utils/TableUtils");
 local GameScript = require("src/GameScript");
+local Fish = require("src/entity/Fish");
 
 local GameScene = Class("GameScene", Scene);
 
@@ -33,7 +34,7 @@ GameScene.init = function(self)
 	
 	self:update(0);
 
-	self:spawn(GameScript, {});
+	self:spawn(Fish, {});
 end
 
 GameScene.update = function(self, dt)
@@ -80,7 +81,9 @@ GameScene.draw = function(self)
 	GameScene.super.draw(self);
 	
 	love.graphics.push();
-	
+	for _, entity in ipairs( self._drawableEntities ) do
+		entity:render();
+	end
 	
 	love.graphics.pop();
 end
