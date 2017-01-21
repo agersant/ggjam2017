@@ -39,7 +39,8 @@ end
 PickUp.render = function(self)
 	self._grabbable = self._ent == self._fish._lastPickupEnt + 1; -- This should be in an update function
 	love.graphics.setColor( 255, 255, 255, (self._grabbable and 255 or 63) );
-	love.graphics.draw(self._image, self._x, self._y);
+	local w, h = self._image:getDimensions();
+	love.graphics.draw(self._image, self._x - w/2, self._y - h/2);
 	if gDrawPhysics then
 		Debug.drawCircleShape(self._body, self._shape);
 	end
