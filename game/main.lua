@@ -2,6 +2,7 @@ local ScriptRunner = require("src/utils/ScriptRunner");
 local Script = require("src/utils/Script");
 local Scene = require("src/utils/Scene");
 local GameScene = require("src/GameScene");
+local TitleScene = require("src/scenes/TitleScene");
 
 gDrawPhysics = false;
 
@@ -28,7 +29,8 @@ love.load = function()
 			},
 		},
 	};
-	local scene = GameScene:new();
+
+	local scene = TitleScene:new();
 	Scene:setCurrent(scene);
 end
 

@@ -20,6 +20,10 @@ Scene.canProcessSignals = function(self)
 	return self._canProcessSignals;
 end
 
+Scene.getScene = function(self)
+	return self;
+end
+
 
 
 -- STATIC
