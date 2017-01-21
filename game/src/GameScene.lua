@@ -33,6 +33,8 @@ GameScene.init = function(self)
 	self._spawnedEntities = {};
 	self._despawnedEntities = {};
 	
+	self._world = love.physics.newWorld(0, 0, false);
+
 	self:update(0);
 
 	self:spawn(Fish, {});
@@ -42,6 +44,8 @@ end
 GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
 	
+	self._world:update(dt);
+
 	self._canProcessSignals = true;
 	
 	-- Update entities
@@ -101,6 +105,9 @@ GameScene.despawn = function(self, entity)
 	self._despawnedEntities[entity] = true;
 end
 
+GameScene.getPhysicsWorld = function(self)
+	return self._world;
+end
 
 
 return GameScene;

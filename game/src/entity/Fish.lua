@@ -7,9 +7,10 @@ local Fish = Class("Fish", Entity);
 
 Fish.init = function(self, scene)
 	Fish.super.init(self, scene);
-	self._x = 100;
-	self._y = 100;
 	self._speed = 60;
+
+	self._body = love.physics.newBody( self._scene:getPhysicsWorld(), 0, 0, "dynamic" );
+	self._body:setPosition(100, 100);
 end
 
 
@@ -22,7 +23,6 @@ Fish.update = function(self, dt)
 	if love.keyboard.isDown("down") then
 		ys = 1;
 	end
-	self._y = self._y + dt * ys * self._speed;
 	
 	local xs = 0;
 	if love.keyboard.isDown("left") then
@@ -31,13 +31,14 @@ Fish.update = function(self, dt)
 	if love.keyboard.isDown("right") then
 		xs = 1;
 	end
-	self._x = self._x + dt * xs * self._speed;
 
+	self._body:setLinearVelocity(xs * self._speed, ys * self._speed);
 end
 
 Fish.render = function(self)
+	local x, y = self._body:getPosition();
 	love.graphics.setColor( 255, 0, 0, 255 );
-	love.graphics.rectangle("fill", self._x, self._y, 10, 10 );
+	love.graphics.rectangle("fill", x, y, 10, 10 );
 end
 
 return Fish;
