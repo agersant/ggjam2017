@@ -4,10 +4,10 @@ local Entity = require("src/utils/Entity");
 local PickUp = Class("PickUp", Entity);
 
 
-PickUp.init = function(self, scene)
+PickUp.init = function(self, scene, position)
 	PickUp.super.init(self, scene);
-	self._x = 200;
-	self._y = 200;
+	self._x = position.x;
+	self._y = position.y;
 end
 
 PickUp.render = function(self)

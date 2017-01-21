@@ -5,7 +5,7 @@ local TableUtils = require("src/utils/TableUtils");
 local GameScript = require("src/GameScript");
 local Fish = require("src/entity/Fish");
 local PickUp = require("src/entity/PickUp");
-
+local LevelLoader = require("src/LevelLoader");
 local GameScene = Class("GameScene", Scene);
 
 
@@ -39,7 +39,7 @@ GameScene.init = function(self)
 	self:update(0);
 
 	self:spawn(Fish, {});
-	self:spawn(PickUp, {});
+	self:spawnPickups('level1-1');
 end
 
 GameScene.spawnEdges = function(self)
@@ -131,5 +131,11 @@ GameScene.getPhysicsWorld = function(self)
 	return self._world;
 end
 
+GameScene.spawnPickups = function(self, levelName)
+	local level = LevelLoader:loadLevel(levelName);
+	for i in pairs(level.pickups) do
+		self:spawn(PickUp, level.pickups[i]);
+    end
+end
 
 return GameScene;
