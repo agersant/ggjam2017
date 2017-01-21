@@ -45,7 +45,8 @@ GameScene.init = function(self)
 
 	self:update(0);
 
-	self:spawn(Fish, {});
+	self:spawn(Fish, { player = Fish.sparky });
+	self:spawn(Fish, { player = Fish.other});
 	self:spawnPickups('level1-1');
 end
 
