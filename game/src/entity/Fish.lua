@@ -21,6 +21,10 @@ Fish.other = {
 Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 250;
+	self._currentLevel = 1;
+	self._currentLevelPickups = 0;
+	self._lastPickupEnt = 0;
+	self._totalPickups = 0;
 	self._angularSpeed = 4;
 	self._player = options.player;
 	self._image = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
@@ -67,6 +71,18 @@ Fish.render = function(self)
 	if DEBUG_MODE then
 		love.graphics.setColor(255, 255, 255, 255);
 		love.graphics.circle("fill", x, y, self._bodyRadius );
+	end
+end
+
+Fish.pickedUpItem = function(self, pickup)
+	-- TODO: Check the pickups in order, not just count
+	self._lastPickupEnt = self._lastPickupEnt + 1;
+	print(self._currentLevelPickups, self._lastPickupEnt);
+	if (self._lastPickupEnt >= self._currentLevelPickups) then
+		self._lastPickupEnt = 0;
+		self._currentLevel = self._currentLevel + 1;
+		--FIXME: Loading the next level causes a Box2D crash
+		-- self:getScene():spawnPickups("level"..self._currentLevel.."-"..self._player.findex);
 	end
 end
 

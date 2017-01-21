@@ -45,9 +45,10 @@ GameScene.init = function(self)
 
 	self:update(0);
 
-	self:spawn(Fish, { player = Fish.sparky });
-	self:spawn(Fish, { player = Fish.other});
-	self:spawnPickups('level1-1');
+	self._fishSparky = self:spawn(Fish, { player = Fish.sparky });
+	self._fishOther = self:spawn(Fish, { player = Fish.other});
+	self:spawnPickups('level1-1', self._fishSparky);
+	-- self:spawnPickups('level1-2', self._fishOther);
 end
 
 GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)
@@ -157,11 +158,13 @@ GameScene.getPhysicsWorld = function(self)
 	return self._world;
 end
 
-GameScene.spawnPickups = function(self, levelName)
+GameScene.spawnPickups = function(self, levelName, fish)
 	local level = LevelLoader:loadLevel(levelName);
 	for i in pairs(level.pickups) do
-		self:spawn(PickUp, level.pickups[i]);
+		local pickup = self:spawn(PickUp, level.pickups[i]);
+		pickup._findex = fish._player.findex;
     end
+	fish._currentLevelPickups = level.numPickups;
 end
 
 GameScene.getTimeLeft = function(self)
