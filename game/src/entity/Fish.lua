@@ -1,4 +1,5 @@
 require("src/utils/OOP");
+local Debug = require("src/Debug");
 local Entity = require("src/utils/Entity");
 local Script = require("src/utils/Script");
 
@@ -68,9 +69,8 @@ Fish.render = function(self)
 	love.graphics.draw(self._image, -imageWidth / 2, -imageHeight / 2 - 8);
 	love.graphics.pop();
 
-	if DEBUG_MODE then
-		love.graphics.setColor(255, 255, 255, 255);
-		love.graphics.circle("fill", x, y, self._bodyRadius );
+	if gDrawPhysics then
+		Debug.drawCircleShape(self._body, self._shape);
 	end
 end
 

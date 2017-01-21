@@ -3,6 +3,8 @@ local Script = require("src/utils/Script");
 local Scene = require("src/utils/Scene");
 local GameScene = require("src/GameScene");
 
+gDrawPhysics = false;
+
 gAssets = {
 	BG = {},
 	CHAR = {},
@@ -10,7 +12,6 @@ gAssets = {
 	MUSIC = {},
 }
 
-DEBUG_MODE = false;
 
 love.load = function()
 	gAssets.CHAR.sparky = love.graphics.newImage( "assets/sprites/sparky_base.png" );
@@ -25,4 +26,10 @@ end
 
 love.draw= function()
 	Scene:getCurrent():draw();
+end
+
+love.keypressed = function(key)
+	if key == "p" then
+		gDrawPhysics = not gDrawPhysics;
+	end
 end
