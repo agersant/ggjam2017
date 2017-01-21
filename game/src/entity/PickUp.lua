@@ -33,7 +33,8 @@ PickUp.render = function(self)
 end
 
 PickUp.collideWith = function(self, object)
-	if object:isInstanceOf(Fish) then
+	if object:isInstanceOf(Fish) and self._findex == object._player.findex then
+		object:pickedUpItem();
 		self:grantTime();
 		self:despawn();
 	end
