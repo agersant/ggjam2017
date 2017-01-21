@@ -66,7 +66,7 @@ Fish.render = function(self)
 	love.graphics.rotate(angle);
 
 	love.graphics.setColor(255, 255, 255, 255);
-	love.graphics.draw(self._image, -imageWidth / 2, -imageHeight / 2);
+	love.graphics.draw(self._image, -imageWidth / 2, -imageHeight / 2 - 8);
 	love.graphics.pop();
 
 	if gDrawPhysics then
