@@ -87,6 +87,12 @@ GameScene.draw = function(self)
 	GameScene.super.draw(self);
 	
 	love.graphics.push();
+
+	love.graphics.translate(40, 120);
+
+	love.graphics.setColor(0, 150, 150, 255);
+	love.graphics.rectangle("fill", 0, 0, 560, 560 );
+
 	for _, entity in ipairs( self._drawableEntities ) do
 		entity:render();
 	end
