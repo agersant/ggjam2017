@@ -5,6 +5,10 @@ local LevelLoader = Class("LevelLoader");
 LevelLoader.init = function(self)
 end
 
+local function compareEnts(a,b)
+    return a.ent < b.ent
+end
+
 --Reads a list of objects from a Tiled level and returns a table data like this:
 --level.numPickups
 --level.pickups[1].ent -- used for sorting (pickups need to be collected in order)
@@ -29,10 +33,10 @@ LevelLoader.loadLevel = function(self, levelName)
             })
         entities.numPickups =  entities.numPickups + 1;
     end
-
-    -- for k,v in TableUtils.spairs(entities.pickups, function(t,a,b) return t[b].ent < t[a].ent end) do
-    --     --FIXME: This doesn't seem to sort by ent# properly
-    --     print(v.ent)
+    table.sort(entities.pickups, compareEnts);
+    -- This is sorted by ent# now
+    -- for p in pairs(entities.pickups) do
+    --     print(entities.pickups[p].ent);
     -- end
     return entities;
 end

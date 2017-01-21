@@ -92,10 +92,9 @@ end
 Fish.pickedUpItem = function(self, pickup)
 	-- TODO: Check the pickups in order, not just count
 	self._lastPickupEnt = self._lastPickupEnt + 1;
-	if true then
+	if (self._lastPickupEnt >= self._currentLevelPickups) then
 		self._lastPickupEnt = 0;
 		self._currentLevel = self._currentLevel + 1;
-		--FIXME: Loading the next level causes a Box2D crash
 		local level = "level"..self._currentLevel.."-"..self._player.findex;
 		self:getScene():spawnPickups(level, self);
 	end
