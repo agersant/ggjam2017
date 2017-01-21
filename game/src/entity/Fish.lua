@@ -76,6 +76,19 @@ Fish.render = function(self)
 	end
 end
 
+Fish.collideWith = function(self, object, contact)
+	if object:isInstanceOf(Fish) then
+		local nx, ny = contact:getNormal();
+		local fixtureA, fixtureB = contact:getFixtures();
+		if fixtureB == self._fixture then
+			nx = -nx;
+			ny = -ny;
+		end
+		local bounce = 500;
+		self._body:applyLinearImpulse(nx * bounce, ny * bounce);
+	end
+end
+
 Fish.pickedUpItem = function(self, pickup)
 	-- TODO: Check the pickups in order, not just count
 	self._lastPickupEnt = self._lastPickupEnt + 1;

@@ -60,10 +60,10 @@ GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)
 		return;
 	end
 	if objectA.collideWith then
-		objectA:collideWith(objectB);
+		objectA:collideWith(objectB, contact);
 	end
 	if objectB.collideWith then
-		objectB:collideWith(objectA);
+		objectB:collideWith(objectA, contact);
 	end
 end
 
