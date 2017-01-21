@@ -10,7 +10,6 @@ Fish.init = function(self, scene)
 	self._x = 100;
 	self._y = 100;
 	self._speed = 60;
-	print("spawn");
 end
 
 
