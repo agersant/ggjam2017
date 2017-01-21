@@ -4,6 +4,7 @@ local Entity = require("src/utils/Entity");
 local TableUtils = require("src/utils/TableUtils");
 local GameScript = require("src/GameScript");
 local Fish = require("src/entity/Fish");
+local PickUp = require("src/entity/PickUp");
 
 local GameScene = Class("GameScene", Scene);
 
@@ -35,6 +36,7 @@ GameScene.init = function(self)
 	self:update(0);
 
 	self:spawn(Fish, {});
+	self:spawn(PickUp, {});
 end
 
 GameScene.update = function(self, dt)
@@ -74,7 +76,7 @@ GameScene.update = function(self, dt)
 	self._despawnedEntities = {};
 	
 	-- Sort drawable entities
-	table.sort(self._drawableEntities, sortDrawableEntities);
+	-- table.sort(self._drawableEntities, sortDrawableEntities);
 end
 
 GameScene.draw = function(self)
