@@ -1,7 +1,7 @@
 require("src/utils/OOP");
 local Scene = require("src/utils/Scene");
 local Script = require("src/utils/Script");
-local GameScene = require("src/GameScene");
+local HowToPlayScene = require("src/scenes/HowToPlayScene");
 
 local TitleScene = Class("TitleScene", Scene);
 
@@ -16,7 +16,7 @@ end
 
 TitleScene.update = function(self, dt)
 	if love.keyboard.isDown("space") then
-		Scene:setCurrent(GameScene:new());
+		Scene:setCurrent(HowToPlayScene:new());
 		return;
 	end
 	self._script:update(dt);
