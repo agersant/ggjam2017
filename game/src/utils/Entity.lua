@@ -42,6 +42,12 @@ Entity.signal = function(self, signal, ...)
 	self._scriptRunner:signal(signal, ...);
 end
 
+Entity.destroy = function(self)
+	if self._body then
+		self._body:destroy();
+	end
+end
+
 
 -- CORE
 

@@ -34,12 +34,29 @@ GameScene.init = function(self)
 	self._despawnedEntities = {};
 	
 	self._world = love.physics.newWorld(0, 0, false);
+	self._world:setCallbacks(
+		function(fixtureA, fixtureB, contact) self:handleCollision(fixtureA, fixtureB, contact); end
+	);
 	self:spawnEdges();
 
 	self:update(0);
 
 	self:spawn(Fish, {});
 	self:spawnPickups('level1-1');
+end
+
+GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)
+	local objectA = fixtureA:getBody():getUserData();
+	local objectB = fixtureB:getBody():getUserData();
+	if not objectA or not objectB then
+		return;
+	end
+	if objectA.collideWith then
+		objectA:collideWith(objectB);
+	end
+	if objectB.collideWith then
+		objectB:collideWith(objectA);
+	end
 end
 
 GameScene.spawnEdges = function(self)
