@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="28" tileheight="28" nextobjectid="18">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="28" tileheight="28" nextobjectid="22">
  <objectgroup name="Object Layer 1">
   <object id="12" name="Collect0" type="pickup" x="28" y="196" width="28" height="28">
    <properties>
@@ -33,6 +33,30 @@
   </object>
   <object id="17" x="84" y="224">
    <polyline points="0,0 196,-168 392,112 224,252 28,-112 364,-196 448,-84 56,196 0,84 0,0"/>
+  </object>
+  <object id="18" name="Collect0" type="pickup" x="448" y="0" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="0"/>
+   </properties>
+  </object>
+  <object id="19" name="Collect0" type="pickup" x="532" y="112" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="0"/>
+   </properties>
+  </object>
+  <object id="20" name="Collect0" type="pickup" x="84" y="448" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="0"/>
+   </properties>
+  </object>
+  <object id="21" name="Collect0" type="pickup" x="84" y="308" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="0"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

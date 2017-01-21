@@ -8,7 +8,7 @@ return {
   height = 20,
   tilewidth = 28,
   tileheight = 28,
-  nextobjectid = 18,
+  nextobjectid = 22,
   properties = {},
   tilesets = {},
   layers = {
@@ -126,6 +126,70 @@ return {
             { x = 0, y = 0 }
           },
           properties = {}
+        },
+        {
+          id = 18,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 448,
+          y = 0,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "0",
+            ["ent"] = "0"
+          }
+        },
+        {
+          id = 19,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 532,
+          y = 112,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "0",
+            ["ent"] = "0"
+          }
+        },
+        {
+          id = 20,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 84,
+          y = 448,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "0",
+            ["ent"] = "0"
+          }
+        },
+        {
+          id = 21,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 84,
+          y = 308,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "0",
+            ["ent"] = "0"
+          }
         }
       }
     }
