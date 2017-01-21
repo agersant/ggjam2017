@@ -1,6 +1,7 @@
 require("src/utils/OOP");
 local Entity = require("src/utils/Entity");
 local Fish = require("src/entity/Fish");
+local TimeNotify = require("src/entity/TimeNotify");
 
 local PickUp = Class("PickUp", Entity);
 
@@ -22,6 +23,10 @@ PickUp.init = function(self, scene, entityData)
 
 end
 
+PickUp.getPosition = function(self)
+	return self._body:getPosition();
+end
+
 PickUp.render = function(self)
 	love.graphics.setColor( 0, 255, 0, 255 );
 	love.graphics.rectangle("fill", self._x, self._y, 5, 5 );
@@ -29,8 +34,16 @@ end
 
 PickUp.collideWith = function(self, object)
 	if object:isInstanceOf(Fish) then
+		self:grantTime();
 		self:despawn();
 	end
+end
+
+PickUp.grantTime = function(self)
+	local timeEarned = 2;
+	local scene = self:getScene();
+	scene:giveExtraTime(timeEarned);
+	scene:spawn(TimeNotify, {time = timeEarned, source = self});
 end
 
 return PickUp;
