@@ -11,9 +11,15 @@ PickUp.init = function(self, scene, entityData)
 	PickUp.super.init(self, scene);
 	self._fish = nil;
 	self._grabbable = false;
-	self._ent = entityData.ent; -- use this for sorting the pickup order
-	self._x = entityData.x;
-	self._y = entityData.y;
+	self._fish = entityData.fish;
+	assert(self._fish);
+
+	self._ent = entityData.props.ent; -- use this for sorting the pickup order
+	self._x = entityData.props.x;
+	self._y = entityData.props.y;
+
+	self._image = self._fish:getBubbleSprite();
+	assert(self._image);
 end
 
 PickUp.addedToScene = function(self)
@@ -32,8 +38,8 @@ end
 
 PickUp.render = function(self)
 	self._grabbable = self._ent == self._fish._lastPickupEnt + 1; -- This should be in an update function
-	love.graphics.setColor( 0, 255, 0, (self._grabbable and 255 or 63) );
-	love.graphics.rectangle("fill", self._x, self._y, 5, 5 );
+	love.graphics.setColor( 255, 255, 255, (self._grabbable and 255 or 63) );
+	love.graphics.draw(self._image, self._x, self._y);
 	if gDrawPhysics then
 		Debug.drawCircleShape(self._body, self._shape);
 	end

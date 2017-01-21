@@ -167,8 +167,11 @@ end
 
 GameScene.spawnPickup = function(self, levelName, fish, index)
 	local level = LevelLoader:loadLevel(levelName);
-	local pickup = self:spawn(PickUp, level.pickups[index]);
-	pickup._fish = fish;
+	local pickupOptions = {
+		props = level.pickups[index],
+		fish = fish,
+	};
+	local pickup = self:spawn(PickUp, pickupOptions);
 	fish._currentLevelPickups = level.numPickups;
 end
 

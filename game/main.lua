@@ -29,6 +29,9 @@ love.load = function()
 			},
 		},
 	};
+	
+	gAssets.CHAR.bubbleA = love.graphics.newImage( "assets/sprites/bubbleA.png" );
+	gAssets.CHAR.bubbleB = love.graphics.newImage( "assets/sprites/bubbleB.png" );
 
 	local scene = TitleScene:new();
 	Scene:setCurrent(scene);
