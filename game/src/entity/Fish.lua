@@ -60,8 +60,6 @@ Fish.render = function(self)
 	love.graphics.rotate(angle);
 
 	local image = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
-	print( self._player.findex );
-	print( Fish.sparky.findex );
 	love.graphics.setColor(255, 255, 255, 255);
 	love.graphics.draw(image, -halfLength, -halfLength);
 	love.graphics.pop();
