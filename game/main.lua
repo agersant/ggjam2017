@@ -10,11 +10,13 @@ gAssets = {
 	MUSIC = {},
 }
 
+DEBUG_MODE = false;
+
 love.load = function()
-	local scene = GameScene:new();
-	Scene:setCurrent(scene);
 	gAssets.CHAR.sparky = love.graphics.newImage( "assets/sprites/sparky_base.png" );
 	gAssets.CHAR.other = love.graphics.newImage( "assets/sprites/otherfish_base.png" );
+	local scene = GameScene:new();
+	Scene:setCurrent(scene);
 end
 
 love.update = function(dt)

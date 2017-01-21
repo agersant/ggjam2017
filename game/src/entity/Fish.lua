@@ -22,15 +22,16 @@ Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 250;
 	self._angularSpeed = 4;
-	self._length = 35;
 	self._player = options.player;
+	self._image = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
+	self._bodyRadius = 10;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._player.spawnLocation.x, self._player.spawnLocation.y);
 	self._body:setLinearDamping(2.2);
 	self._body:setUserData(self);
 
-	self._shape = love.physics.newCircleShape(10);
+	self._shape = love.physics.newCircleShape(self._bodyRadius);
 	self._fixture = love.physics.newFixture(self._body, self._shape);
 end
 
@@ -53,16 +54,20 @@ end
 
 Fish.render = function(self)
 	local x, y = self._body:getPosition();
+	local imageWidth, imageHeight = self._image:getDimensions();
 	local angle = self._body:getAngle();
-	local halfLength = self._length / 2;
 	love.graphics.push()
 	love.graphics.translate(x, y);
 	love.graphics.rotate(angle);
 
-	local image = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
 	love.graphics.setColor(255, 255, 255, 255);
-	love.graphics.draw(image, -halfLength, -halfLength);
+	love.graphics.draw(self._image, -imageWidth / 2, -imageHeight / 2);
 	love.graphics.pop();
+
+	if DEBUG_MODE then
+		love.graphics.setColor(255, 255, 255, 255);
+		love.graphics.circle("fill", x, y, self._bodyRadius );
+	end
 end
 
 return Fish;
