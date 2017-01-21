@@ -12,7 +12,7 @@ HUD.update = function(self, dt)
 end
 
 HUD.render = function(self)
-	local timeLeft = math.ceil( self._scene:getTimeLeft() );
+	local timeLeft = math.ceil(self._scene:getTimeLeft());
 	love.graphics.setColor(255, 255, 255, 255);
 	love.graphics.setFont(self._timerFont);
 	love.graphics.printf(timeLeft, 0, 40, 640, "center");
