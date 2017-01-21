@@ -6,6 +6,7 @@ local GameScript = require("src/GameScript");
 local Fish = require("src/entity/Fish");
 local PickUp = require("src/entity/PickUp");
 local LevelLoader = require("src/LevelLoader");
+local HUD = require("src/HUD");
 local GameScene = Class("GameScene", Scene);
 
 
@@ -38,6 +39,9 @@ GameScene.init = function(self)
 		function(fixtureA, fixtureB, contact) self:handleCollision(fixtureA, fixtureB, contact); end
 	);
 	self:spawnEdges();
+
+	self._timeLeft = 60;
+	self._hud = HUD:new(self);
 
 	self:update(0);
 
@@ -77,6 +81,7 @@ end
 GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
 	
+	self._timeLeft = self._timeLeft - dt;
 	self._world:update(dt);
 
 	self._canProcessSignals = true;
@@ -131,6 +136,9 @@ GameScene.draw = function(self)
 	end
 	
 	love.graphics.pop();
+
+	self._hud:render();
+	
 end
 
 GameScene.spawn = function(self, class, options)
@@ -153,6 +161,14 @@ GameScene.spawnPickups = function(self, levelName)
 	for i in pairs(level.pickups) do
 		self:spawn(PickUp, level.pickups[i]);
     end
+end
+
+GameScene.getTimeLeft = function(self)
+	return self._timeLeft;
+end
+
+GameScene.giveExtraTime = function(self, seconds)
+	self._timeLeft = self._timeLeft + seconds;
 end
 
 return GameScene;
