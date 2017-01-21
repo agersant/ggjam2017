@@ -1,4 +1,5 @@
 require("src/utils/OOP");
+local Debug = require("src/Debug");
 local Entity = require("src/utils/Entity");
 local Script = require("src/utils/Script");
 
@@ -67,6 +68,10 @@ Fish.render = function(self)
 	love.graphics.setColor(255, 255, 255, 255);
 	love.graphics.draw(image, -halfLength, -halfLength);
 	love.graphics.pop();
+
+	if gDrawPhysics then
+		Debug.drawCircleShape(self._body, self._shape);
+	end
 end
 
 Fish.pickedUpItem = function(self, pickup)

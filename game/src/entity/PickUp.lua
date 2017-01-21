@@ -1,4 +1,5 @@
 require("src/utils/OOP");
+local Debug = require("src/Debug");
 local Entity = require("src/utils/Entity");
 local Fish = require("src/entity/Fish");
 local TimeNotify = require("src/entity/TimeNotify");
@@ -30,6 +31,9 @@ end
 PickUp.render = function(self)
 	love.graphics.setColor( 0, 255, 0, 255 );
 	love.graphics.rectangle("fill", self._x, self._y, 5, 5 );
+	if gDrawPhysics then
+		Debug.drawCircleShape(self._body, self._shape);
+	end
 end
 
 PickUp.collideWith = function(self, object)
