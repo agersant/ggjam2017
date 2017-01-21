@@ -239,6 +239,14 @@ Script.wait = function(self, seconds)
 	end
 end
 
+Script.getTime = function(self)
+	return self._time;
+end
+
+Script.timeSince = function(self, time)
+	return self._time - time;
+end
+
 Script.thread = function(self, functionToThread)
 	assert(type(functionToThread) == "function");
 	return coroutine.yield("fork", self, functionToThread);
