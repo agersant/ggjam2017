@@ -25,8 +25,9 @@ LevelLoader.loadLevel = function(self, levelName)
 
     local objects = levelData.layers[1].objects;
     for i in pairs(objects) do
+        print(levelName, entities);
         table.insert(entities.pickups, {
-                ent = objects[i].properties['ent'],
+                ent = tonumber(objects[i].properties['ent']) + 1,
                 chunk = objects[i].properties['chunk'],
                 x = objects[i].x,
                 y = objects[i].y
@@ -34,10 +35,6 @@ LevelLoader.loadLevel = function(self, levelName)
         entities.numPickups =  entities.numPickups + 1;
     end
     table.sort(entities.pickups, compareEnts);
-    -- This is sorted by ent# now
-    -- for p in pairs(entities.pickups) do
-    --     print(entities.pickups[p].ent);
-    -- end
     return entities;
 end
 

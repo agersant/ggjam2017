@@ -48,8 +48,10 @@ GameScene.init = function(self)
 
 	self._fishSparky = self:spawn(Fish, { player = Fish.sparky });
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
-	self:spawnPickups('level1-1', self._fishSparky);
-	self:spawnPickups('level1-2', self._fishOther);
+	self:spawnPickup('level1-1', self._fishSparky, 1);
+	self:spawnPickup('level1-1', self._fishSparky, 2);
+	self:spawnPickup('level1-1', self._fishSparky, 3);
+	-- self:spawnPickups('level1-2', self._fishOther);
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
 end
 
@@ -163,12 +165,10 @@ GameScene.getPhysicsWorld = function(self)
 	return self._world;
 end
 
-GameScene.spawnPickups = function(self, levelName, fish)
+GameScene.spawnPickup = function(self, levelName, fish, index)
 	local level = LevelLoader:loadLevel(levelName);
-	for i in pairs(level.pickups) do
-		local pickup = self:spawn(PickUp, level.pickups[i]);
-		pickup._findex = fish._player.findex;
-    end
+	local pickup = self:spawn(PickUp, level.pickups[index]);
+	pickup._fish = fish;
 	fish._currentLevelPickups = level.numPickups;
 end
 

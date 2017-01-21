@@ -23,6 +23,7 @@ Fish.other = {
 Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 250;
+	self._foresight = 3;
 	self._currentLevel = 1;
 	self._currentLevelPickups = 0;
 	self._lastPickupEnt = 0;
@@ -97,13 +98,16 @@ end
 
 Fish.pickedUpItem = function(self, pickup)
 	-- TODO: Check the pickups in order, not just count
-	self._lastPickupEnt = self._lastPickupEnt + 1;
-	if (self._lastPickupEnt >= self._currentLevelPickups) then
-		self._lastPickupEnt = 0;
+	self._lastPickupEnt = pickup._ent;
+	print(self._lastPickupEnt, self._currentLevelPickups);
+	if(self._lastPickupEnt + self._foresight > self._currentLevelPickups) then
 		self._currentLevel = self._currentLevel + 1;
-		local level = "level"..self._currentLevel.."-"..self._player.findex;
-		self:getScene():spawnPickups(level, self);
+		if (self._lastPickupEnt >= self._currentLevelPickups) then
+			self._lastPickupEnt = 0;
+		end
 	end
+	local level = "level"..self._currentLevel.."-"..self._player.findex;
+	self:getScene():spawnPickup(level, self, self._lastPickupEnt + self._foresight);
 end
 
 return Fish;
