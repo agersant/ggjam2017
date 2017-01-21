@@ -27,14 +27,15 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 56,
-          y = 56,
+          x = 84,
+          y = 112,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "0"
+            ["chunk"] = "0",
+            ["ent"] = "1"
           }
         },
         {
@@ -42,14 +43,15 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 28,
-          y = 140,
+          x = 56,
+          y = 196,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "0"
+            ["chunk"] = "0",
+            ["ent"] = "2"
           }
         },
         {
@@ -58,13 +60,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 28,
-          y = 252,
+          y = 280,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1"
+            ["chunk"] = "1",
+            ["ent"] = "3"
           }
         },
         {
@@ -73,13 +76,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 56,
-          y = 336,
+          y = 364,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1"
+            ["chunk"] = "1",
+            ["ent"] = "4"
           }
         },
         {
@@ -88,13 +92,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 112,
-          y = 392,
+          y = 420,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1"
+            ["chunk"] = "1",
+            ["ent"] = "5"
           }
         },
         {
@@ -103,13 +108,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 224,
-          y = 504,
+          y = 476,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2"
+            ["chunk"] = "2",
+            ["ent"] = "6"
           }
         },
         {
@@ -118,13 +124,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 308,
-          y = 504,
+          y = 476,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2"
+            ["chunk"] = "2",
+            ["ent"] = "7"
           }
         },
         {
@@ -133,13 +140,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 420,
-          y = 392,
+          y = 420,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2"
+            ["chunk"] = "2",
+            ["ent"] = "8"
           }
         },
         {
@@ -148,13 +156,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 476,
-          y = 336,
+          y = 364,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "3"
+            ["chunk"] = "3",
+            ["ent"] = "9"
           }
         },
         {
@@ -162,14 +171,15 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 504,
-          y = 140,
+          x = 476,
+          y = 196,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "3"
+            ["chunk"] = "3",
+            ["ent"] = "11"
           }
         },
         {
@@ -178,13 +188,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 504,
-          y = 252,
+          y = 280,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "3"
+            ["chunk"] = "3",
+            ["ent"] = "10"
           }
         },
         {
@@ -192,14 +203,15 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 476,
-          y = 56,
+          x = 448,
+          y = 112,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "4"
+            ["chunk"] = "4",
+            ["ent"] = "12"
           }
         },
         {
@@ -208,13 +220,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 252,
-          y = 0,
+          y = 56,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "4"
+            ["chunk"] = "4",
+            ["ent"] = "14"
           }
         },
         {
@@ -223,13 +236,14 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 364,
-          y = 0,
+          y = 56,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "4"
+            ["chunk"] = "4",
+            ["ent"] = "13"
           }
         },
         {
@@ -237,14 +251,15 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 168,
-          y = 0,
+          x = 167,
+          y = 56,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "0"
+            ["chunk"] = "0",
+            ["ent"] = "0"
           }
         }
       }
