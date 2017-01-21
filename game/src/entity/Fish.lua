@@ -45,8 +45,8 @@ Fish.render = function(self)
 	love.graphics.translate(x, y);
 	love.graphics.rotate(angle);
 
-	love.graphics.setColor(255, 0, 0, 255);
-	love.graphics.rectangle("fill", -halfLength, -halfLength, self._length, self._length);
+	love.graphics.setColor(255, 255, 255, 255);
+	love.graphics.draw(gAssets.CHAR.sparky, -halfLength, -halfLength);
 	love.graphics.pop();
 end
 
