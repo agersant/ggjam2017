@@ -7,12 +7,13 @@ local Fish = Class("Fish", Entity);
 
 Fish.init = function(self, scene)
 	Fish.super.init(self, scene);
-	self._speed = 10;
-	self._angularSpeed = 2;
-	self._length = 10;
+	self._speed = 0.5;
+	self._angularSpeed = 4;
+	self._length = 35;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(100, 100);
+	self._body:setLinearDamping(2.2);
 
 	self._shape = love.physics.newCircleShape(10);
 	self._fixture = love.physics.newFixture(self._body, self._shape);
@@ -32,7 +33,7 @@ Fish.update = function(self, dt)
 
 	local angle = self._body:getAngle();
 	if love.keyboard.isDown("up") then
-		self._body:applyForce(self._speed * math.cos(angle), self._speed * math.sin(angle));
+		self._body:applyLinearImpulse(self._speed * math.cos(angle), self._speed * math.sin(angle));
 	end
 end
 
