@@ -5,10 +5,12 @@ local Fish = require("src/entity/Fish");
 local PickUp = Class("PickUp", Entity);
 
 
-PickUp.init = function(self, scene, position)
+PickUp.init = function(self, scene, entityData)
 	PickUp.super.init(self, scene);
-	self._x = position.x;
-	self._y = position.y;
+	self._chunk = entityData.chunk;
+	self._ent = entityData.ent; -- use this for sorting the pickup order
+	self._x = entityData.x;
+	self._y = entityData.y;
 
 	local physicsRadius = 20;
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
