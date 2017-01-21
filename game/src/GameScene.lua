@@ -167,4 +167,8 @@ GameScene.getTimeLeft = function(self)
 	return self._timeLeft;
 end
 
+GameScene.giveExtraTime = function(self, seconds)
+	self._timeLeft = self._timeLeft + seconds;
+end
+
 return GameScene;
