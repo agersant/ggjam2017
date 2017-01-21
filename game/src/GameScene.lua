@@ -49,8 +49,8 @@ GameScene.init = function(self)
 	self._fishSparky = self:spawn(Fish, { player = Fish.sparky });
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
 	self:spawnPickups('level1-1', self._fishSparky);
+	self:spawnPickups('level1-2', self._fishOther);
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
-	-- self:spawnPickups('level1-2', self._fishOther);
 end
 
 GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)
