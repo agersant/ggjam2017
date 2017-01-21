@@ -38,6 +38,8 @@ Fish.init = function(self, scene, options)
 
 	self._shape = love.physics.newCircleShape(self._bodyRadius);
 	self._fixture = love.physics.newFixture(self._body, self._shape);
+	self._fixture:setCategory(Entity.PHYSICS_TAG.FISH);
+	self._fixture:setRestitution(.9);
 end
 
 

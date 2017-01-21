@@ -4,6 +4,12 @@ local ScriptRunner = require("src/utils/ScriptRunner");
 local Entity = Class("Entity");
 
 
+Entity.PHYSICS_TAG = {
+	GEO = 1,
+	BUMPER = 2,
+	FISH = 3,
+};
+
 
 Entity.init = function(self, scene)
 	assert(scene);

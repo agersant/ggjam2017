@@ -3,6 +3,7 @@ local Scene = require("src/utils/Scene");
 local Entity = require("src/utils/Entity");
 local TableUtils = require("src/utils/TableUtils");
 local GameScript = require("src/GameScript");
+local BumperSpawner = require("src/entity/BumperSpawner");
 local Fish = require("src/entity/Fish");
 local PickUp = require("src/entity/PickUp");
 local LevelLoader = require("src/LevelLoader");
@@ -48,6 +49,7 @@ GameScene.init = function(self)
 	self._fishSparky = self:spawn(Fish, { player = Fish.sparky });
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
 	self:spawnPickups('level1-1', self._fishSparky);
+	self._bumperSpawner = self:spawn(BumperSpawner, {});
 	-- self:spawnPickups('level1-2', self._fishOther);
 end
 
@@ -75,7 +77,9 @@ GameScene.spawnEdges = function(self)
 	for _, wall in pairs(walls) do
 		local body = love.physics.newBody(self._world, 0, 0, "static");
 		local shape = love.physics.newRectangleShape(wall.x, wall.y, wall.w, wall.h);
-		love.physics.newFixture(body, shape);
+		local fixture = love.physics.newFixture(body, shape);
+		fixture:setRestitution(1);
+		fixture:setCategory(Entity.PHYSICS_TAG.GEO);
 	end
 	
 end
