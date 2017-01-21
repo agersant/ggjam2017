@@ -100,6 +100,7 @@ GameScene.update = function(self, dt)
 	-- Add new entities
 	for entity, _ in pairs(self._spawnedEntities) do
 		table.insert(self._entities, entity);
+		entity:addedToScene();
 		if entity:isDrawable() then
 			table.insert(self._drawableEntities, entity);
 		end

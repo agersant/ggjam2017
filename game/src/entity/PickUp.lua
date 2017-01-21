@@ -13,7 +13,9 @@ PickUp.init = function(self, scene, entityData)
 	self._ent = entityData.ent; -- use this for sorting the pickup order
 	self._x = entityData.x;
 	self._y = entityData.y;
+end
 
+PickUp.addedToScene = function(self)
 	local physicsRadius = 20;
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._x, self._y);
@@ -21,7 +23,6 @@ PickUp.init = function(self, scene, entityData)
 	self._shape = love.physics.newCircleShape(physicsRadius);
 	self._fixture = love.physics.newFixture(self._body, self._shape);
 	self._fixture:setSensor(true);
-
 end
 
 PickUp.getPosition = function(self)

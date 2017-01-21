@@ -24,6 +24,9 @@ Entity.isDrawable = function( self )
 	return self.render ~= nil;
 end
 
+Entity.addedToScene = function(self)
+end
+
 
 -- SCRIPT COMPONENT
 
