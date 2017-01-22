@@ -149,8 +149,8 @@ Fish.collideWith = function(self, object, contact)
 	local isBumper = object:isInstanceOf(Bumper);
 
 	if isFish or isBumper then
-		love.audio.stop( gAssets.MUSIC.bonk );
-		love.audio.play( gAssets.MUSIC.bonk );
+		love.audio.stop( gAssets.SOUND.bonk );
+		love.audio.play( gAssets.SOUND.bonk );
 	end
 
 	if isFish then

@@ -73,8 +73,8 @@ PickUp.collideWith = function(self, object)
 end
 
 PickUp.pickup = function(self, wasFinal)
-	love.audio.stop( gAssets.MUSIC.pickup );
-	love.audio.play( gAssets.MUSIC.pickup );
+	love.audio.stop( gAssets.SOUND.pickup );
+	love.audio.play( gAssets.SOUND.pickup );
 	local timeEarned = wasFinal and 5 or 1;
 	local scene = self:getScene();
 	scene:giveExtraTime(timeEarned);

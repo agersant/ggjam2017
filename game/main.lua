@@ -95,9 +95,10 @@ love.load = function()
 	gAssets.MUSIC.theme = love.audio.newSource( "assets/music/Theme.mp3" );
 	gAssets.MUSIC.hidden = love.audio.newSource( "assets/music/HiddenTheme.mp3" );
 	gAssets.MUSIC.waves = love.audio.newSource( "assets/music/waves.ogg" );
-	gAssets.MUSIC.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
-	gAssets.MUSIC.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
 	gAssets.MUSIC.hurryUp = love.audio.newSource( "assets/music/HurryUp.mp3" );
+
+	gAssets.SOUND.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
+	gAssets.SOUND.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
 
 	gAssets.BG.game = love.graphics.newImage("assets/backgrounds/playspace_bg.png")
 
