@@ -15,7 +15,7 @@ Fish.sparky = {
 	left = "left",
 	right = "right",
 	up = "up",
-	spawnLocation = { x = 100, y = 100 },
+	spawnLocation = { x = 400, y = 40 },
 }
 Fish.other = {
 	findex = 2,
