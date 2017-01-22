@@ -9,6 +9,8 @@ local HowToPlayScene = Class("HowToPlayScene", Scene);
 HowToPlayScene.init = function(self)
 	HowToPlayScene.super.init(self);
 	AmbientBubbles:init();
+	self._titleFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 55);
+	self._bodyFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 35);
 	self._backgroundImg = love.graphics.newImage( "assets/sprites/ui/oceanBackground.png" );
 	self._sparkyImg = love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_000.png" );
 	self._otherFishImg = love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_000.png" );
@@ -34,17 +36,19 @@ HowToPlayScene.draw = function(self)
 	AmbientBubbles:draw();
 
 	--Icont next to instructions
-	love.graphics.draw( self._sparkyImg, 0, 100 );
-	love.graphics.draw( AmbientBubbles._bubbleImgs[1], 95, 162 );
-	love.graphics.draw( self._otherFishImg, 0, 228 );
-	love.graphics.draw( AmbientBubbles._bubbleImgs[2], 95, 290 );
+	love.graphics.draw( self._sparkyImg, 0, 190 );
+	love.graphics.draw( AmbientBubbles._bubbleImgs[1], 95, 252 );
+	love.graphics.draw( self._otherFishImg, 0, 318 );
+	love.graphics.draw( AmbientBubbles._bubbleImgs[2], 95, 380 );
 
-	love.graphics.setColor(0, 0 , 0, 255);
-	love.graphics.printf("HOW TO PLAY", 0, 64, 640, "center");
-	--TODO: Need to draw associated sprites
-	love.graphics.printf("Sparky: Use arrow keys to collect red bubbles.", 128, 128, 500, "left");
-	love.graphics.printf("Other Fish: Use WASD keys to collect green bubbles.", 128, 256, 500, "left");
-	love.graphics.printf("Both: Avoid Goobers! Collect as many bubbles as you can before the time runs out. Collecting bubbles will give you a small time bonus.", 128, 384, 500, "left");
+	love.graphics.setColor(240, 228, 199, 255);
+	love.graphics.setFont(self._titleFont);
+	love.graphics.printf("HOW TO PLAY", 0, 104, 640, "center");
+
+	love.graphics.setFont(self._bodyFont);
+	love.graphics.printf("Sparky: Use arrow keys to collect red bubbles.", 128, 218, 500, "left");
+	love.graphics.printf("Other Fish: Use WASD keys to collect green bubbles.", 128, 346, 500, "left");
+	love.graphics.printf("Both: Avoid Goobers! Collect as many bubbles as you can before the time runs out. Collecting bubbles will give you a small time bonus.", 128, 474, 500, "left");
 end
 
 return HowToPlayScene;
