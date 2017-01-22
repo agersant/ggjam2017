@@ -44,7 +44,7 @@ return {
           type = "pickup",
           shape = "rectangle",
           x = 56,
-          y = 84,
+          y = 112,
           width = 28,
           height = 28,
           rotation = 0,
