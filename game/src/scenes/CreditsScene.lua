@@ -11,7 +11,7 @@ CreditsScene.init = function(self)
 	self._font = love.graphics.newFont("assets/fonts/smallFont.ttf", 26);
 	self._text = [[Sparky And The Other Fish
 
-Made by the Goobs for
+Made by The Goobs for
 Global Game Jam 2017
 
 Cody Malach: Design, Code, Music
@@ -20,7 +20,7 @@ Amanda Newman: Art, Art, Art
 David Ludwig: Design
 Antoine Gersant: Code, Design, Audio
 
-So long and thank you for the fish!
+So long, and thanks for all the fish!
 	]];
 end
 
