@@ -1,10 +1,14 @@
 require("src/utils/OOP");
-local Debug = require("src/Debug");
 local Entity = require("src/utils/Entity");
-local Script = require("src/utils/Script");
-local AnimatedSprite = require("src/gfx/AnimatedSprite");
-
 local Fish = Class("Fish", Entity);
+package.loaded["src/entity/Fish"] = Fish;
+
+local Debug = require("src/Debug");
+local Script = require("src/utils/Script");
+local LevelLoader = require("src/LevelLoader");
+local AnimatedSprite = require("src/gfx/AnimatedSprite");
+local PickUp = require("src/entity/PickUp");
+
 Fish.sparky = {
 	findex = 1,
 	left = "left",
@@ -24,11 +28,7 @@ Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 250;
 	self._foresight = 3;
-	self._currentLevel = 1;
-	self._currentLevelPickups = 0;
-	self._lastPickupEnt = 0;
-	self._lastEntSpawned = 0;
-	self._totalPickups = 0;
+	self._currentLevel = 0;
 	self._angularSpeed = 180;
 	self._player = options.player;
 	self._bodyRadius = 10;
@@ -47,8 +47,40 @@ Fish.init = function(self, scene, options)
 	local spriteData = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
 	self:addSprite(AnimatedSprite:new(spriteData));
 	self:playAnimation("idle");
+
+	self._upcomingPickUps = {};
+	self._levelLengths = {};
+	for i = 1, self._foresight do
+		self:spawnNextPickUp(i);
+	end
 end
 
+Fish.getNextPickUp = function(self)
+	return self._upcomingPickUps[1];
+end
+
+Fish.spawnNextPickUp = function(self, pickupIndex)
+	pickupIndex = pickupIndex or self._foresight;
+	while #self._upcomingPickUps < pickupIndex do
+		self:loadNextLevel();
+	end
+	local pickupData = self._upcomingPickUps[pickupIndex];
+	assert(pickupData);
+	self:getScene():spawn(PickUp, {
+		props = pickupData,
+		fish = self,
+	});
+end
+
+Fish.loadNextLevel = function(self)
+	self._currentLevel = self._currentLevel + 1;
+	local levelName = "level" .. self._currentLevel .. "-" .. self._player.findex;
+	local levelData = LevelLoader:loadLevel(levelName);
+	for i, pickup in ipairs(levelData.pickups) do
+		table.insert(self._upcomingPickUps, pickup);
+	end
+	table.insert(self._levelLengths, #levelData.pickups);
+end
 
 Fish.update = function(self, dt)
 
@@ -103,21 +135,15 @@ Fish.collideWith = function(self, object, contact)
 end
 
 Fish.pickedUpItem = function(self, pickup)
-	self._lastPickupEnt = pickup._ent;
-	--FIXME: currentLevelPickups increases when it shouldn't
-	--Potential fix: when new level is loaded set last pickup to 0 and don't update it until we hit 1 again
-	if(self._lastPickupEnt + self._foresight > self._currentLevelPickups) then
-		if (self._lastPickupEnt >= self._currentLevelPickups) then
-			self._lastPickupEnt = 0;
-		end
-		self._currentLevel = self._currentLevel + 1;
+	table.remove(self._upcomingPickUps, 1);
+	assert(self._levelLengths[1] > 0);
+	if self._levelLengths[1] == 1 then
+		table.remove(self._levelLengths, 1);
+		-- COMPLETED CHAIN
+	else
+		self._levelLengths[1] = self._levelLengths[1] - 1;
 	end
-	local level = "level"..self._currentLevel.."-"..self._player.findex;
-	if(self._lastEntSpawned >= self._currentLevelPickups) then
-		self._lastEntSpawned = 0;
-	end
-	self:getScene():spawnPickup(level, self, self._lastEntSpawned + 1);
-	print("_lastPickupEnt: "..self._lastPickupEnt, "_lastEntSpawned: "..self._lastEntSpawned, "_currentLevelPickups: "..self._currentLevelPickups, "_currentLevel: "..self._currentLevel);
+	self:spawnNextPickUp();
 end
 
 Fish.getBubbleSprite = function(self)
