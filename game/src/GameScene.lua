@@ -187,6 +187,8 @@ GameScene.draw = function(self)
 
 	love.graphics.setColor(255, 255 , 255, 255);
 	love.graphics.draw( gAssets.BG.game );
+	love.graphics.draw( gAssets.BG.scoreBacking, love.graphics.getWidth() * 0.5 - 100, -52 );
+	love.graphics.draw( gAssets.BG.kelp_single );
 	love.graphics.draw( gAssets.BG.kelp );
 
 	love.graphics.push();

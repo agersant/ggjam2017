@@ -125,6 +125,8 @@ love.load = function()
 
 	gAssets.BG.game = love.graphics.newImage("assets/backgrounds/playspace_bg.png")
 	gAssets.BG.kelp = love.graphics.newImage("assets/backgrounds/kelp.png")
+	gAssets.BG.kelp_single = love.graphics.newImage("assets/backgrounds/kelp_single.png")
+	gAssets.BG.scoreBacking = love.graphics.newImage("assets/sprites/ui/scoreBacking.png");
 	gAssets.ITEMS.bumper = love.graphics.newImage("assets/sprites/bouncer.png");
 	gAssets.ITEMS.waterSurface = {
 		idle = {
