@@ -124,6 +124,7 @@ love.load = function()
 	gAssets.SOUND.secretBub5 = love.audio.newSource( "assets/sfx/secretBub5.mp3" );
 
 	gAssets.BG.game = love.graphics.newImage("assets/backgrounds/playspace_bg.png")
+	gAssets.BG.kelp = love.graphics.newImage("assets/backgrounds/kelp.png")
 	gAssets.ITEMS.bumper = love.graphics.newImage("assets/sprites/bouncer.png");
 	gAssets.ITEMS.waterSurface = {
 		love.graphics.newImage("assets/sprites/waterSurface/waterSurface1.png"),

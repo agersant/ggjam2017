@@ -183,6 +183,7 @@ GameScene.draw = function(self)
 
 	love.graphics.setColor(255, 255 , 255, 255);
 	love.graphics.draw( gAssets.BG.game );
+	love.graphics.draw( gAssets.BG.kelp );
 
 	love.graphics.push();
 	love.graphics.translate(40, 120);
