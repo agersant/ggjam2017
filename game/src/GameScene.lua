@@ -60,6 +60,19 @@ GameScene.init = function(self)
 	self._hud = HUD:new(self);
 
 	self._scriptRunner = ScriptRunner:new(self);
+	self._scriptRunner:addScript(Script:new(self, function(script)
+		script:thread( function()
+			script:waitFor( "hurryUp" );
+			script:tween(.5, 0, 2, nil, function(v) love.audio.setVolume( v ); end);
+			self:playMusic( gAssets.MUSIC.hurryUp );
+		end );
+
+		script:thread( function()
+			script:waitFor( "backToNormal" );
+			script:tween(.5, 0, 2, nil, function(v) love.audio.setVolume( v ); end);
+			self:playMusic( getRandomTheme() ); 
+		end );
+	end));
 
 	self:update(0);
 
@@ -68,6 +81,7 @@ GameScene.init = function(self)
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
 	
 	self:playMusic( getRandomTheme() );
+	self._songState = 0;
 end
 
 GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)
@@ -103,12 +117,14 @@ end
 
 GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
-	
+
 	self._timeLeft = self._timeLeft - dt;
-	if self._timeLeft <= 15 and not self._gameOver then
-		self:playMusic( gAssets.MUSIC.hurryUp );
-	elseif self._timeLeft >= 25 and gCurrentMusic ~= gAssets.MUSIC.hidden and gCurrentMusic ~= gAssets.MUSIC.theme then
-		self:playMusic( getRandomTheme() ); 
+	if self._timeLeft <= 10 and not self._gameOver and self._songState ~= 1 then
+		self._scriptRunner:signal( "hurryUp" );
+		self._songState = 1;
+	elseif self._timeLeft >= 20 and self._songState ~= 0 then
+		self._scriptRunner:signal( "backToNormal" );
+		self._songState = 0;
 	end
 	if not self._gameOver then
 		self._score = self._score + dt;
