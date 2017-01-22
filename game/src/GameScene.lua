@@ -106,7 +106,7 @@ GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
 	
 	self._timeLeft = self._timeLeft - dt;
-	if self._timeLeft <= 15 then
+	if self._timeLeft <= 15 and not self._gameOver then
 		self:playMusic( gAssets.MUSIC.hurryUp );
 	elseif self._timeLeft >= 25 and gCurrentMusic ~= gAssets.MUSIC.hidden and gCurrentMusic ~= gAssets.MUSIC.theme then
 		self:playMusic( getRandomTheme() ); 
@@ -200,6 +200,7 @@ GameScene.getPhysicsWorld = function(self)
 end
 
 GameScene.doGameOver = function(self)
+	self:playMusic( gAssets.MUSIC.waves );
 	self._scriptRunner:addScript(Script:new(self, function(script)
 		script:wait(2);
 		script:waitForInput("space");
