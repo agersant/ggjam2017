@@ -7,7 +7,7 @@
     <property name="ent" value="0"/>
    </properties>
   </object>
-  <object id="3" name="Collect" type="pickup" x="56" y="84" width="28" height="28">
+  <object id="3" name="Collect" type="pickup" x="56" y="112" width="28" height="28">
    <properties>
     <property name="chunk" value="0"/>
     <property name="ent" value="1"/>
