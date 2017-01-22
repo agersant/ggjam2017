@@ -7,13 +7,15 @@ local HowToPlayScene = Class("HowToPlayScene", Scene);
 
 HowToPlayScene.init = function(self)
 	HowToPlayScene.super.init(self);
+	self._script = Script:new(self, function(script)
+		script:wait(.1);
+		script:waitForInput("space");
+		Scene:setCurrent(GameScene:new());
+	end);
 end
 
 HowToPlayScene.update = function(self, dt)
-	if love.keyboard.isDown("space") then
-		Scene:setCurrent(GameScene:new());
-		return;
-	end
+	self._script:update(dt);
 end
 
 HowToPlayScene.draw = function(self)
