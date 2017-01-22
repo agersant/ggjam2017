@@ -15,18 +15,21 @@ LevelLoader.loadLevel = function(self, levelName)
     entities.pickups = {};
 
     local objects = levelData.layers[1].objects;
-    for i in pairs(objects) do
-		local pickupIndex = tonumber(objects[i].properties['ent']);
-		if not pickupIndex then
-			print("Missing pickup index for item in level " .. levelName);
-		else
-			table.insert(entities.pickups, {
-				ent = pickupIndex,
-				x = objects[i].x,
-				y = objects[i].y
-			});
+    for i, object in pairs(objects) do
+		if object.type == "pickup" then
+			local pickupIndex = tonumber(object.properties['ent']);
+			if not pickupIndex then
+				print("Missing pickup index for item in level " .. levelName);
+			else
+				table.insert(entities.pickups, {
+					ent = pickupIndex,
+					x = object.x,
+					y = object.y
+				});
+			end
 		end
     end
+	
     table.sort(entities.pickups, compareEnts);
     return entities;
 end
