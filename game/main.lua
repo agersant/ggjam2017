@@ -68,8 +68,7 @@ love.load = function()
 	gAssets.MUSIC.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
 	gAssets.MUSIC.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
 
-	local scene = TitleScene:new();
-	Scene:setCurrent(scene);
+	Scene:setCurrent(TitleScene:new());
 end
 
 love.update = function(dt)
@@ -83,5 +82,7 @@ end
 love.keypressed = function(key)
 	if key == "p" then
 		gDrawPhysics = not gDrawPhysics;
+	elseif key == "escape" then
+		Scene:setCurrent(TitleScene:new());
 	end
 end
