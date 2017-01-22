@@ -67,6 +67,7 @@ love.load = function()
 	gAssets.MUSIC.waves = love.audio.newSource( "assets/music/waves.ogg" );
 	gAssets.MUSIC.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
 	gAssets.MUSIC.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
+	gAssets.MUSIC.hurryUp = love.audio.newSource( "assets/music/HurryUp.mp3" );
 
 	Scene:setCurrent(TitleScene:new());
 end

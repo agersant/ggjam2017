@@ -28,6 +28,16 @@ local removeDespawnedEntitiesFrom = function(self, list)
 	end
 end
 
+local getRandomTheme = function()
+	math.randomseed( os.time() );
+	local songRandom = math.random( 1, 10 );
+	if songRandom == 1 then
+		return gAssets.MUSIC.hidden;
+	else
+		return gAssets.MUSIC.theme;
+	end
+end
+
 
 -- PUBLIC API
 
@@ -58,13 +68,7 @@ GameScene.init = function(self)
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
 	
-	math.randomseed( os.time() );
-	local songRandom = math.random( 1, 10 );
-	if songRandom == 1 then
-		self:playMusic( gAssets.MUSIC.hidden );
-	else
-		self:playMusic( gAssets.MUSIC.theme );
-	end
+	self:playMusic( getRandomTheme() );
 end
 
 GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)
@@ -102,6 +106,11 @@ GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
 	
 	self._timeLeft = self._timeLeft - dt;
+	if self._timeLeft <= 15 then
+		self:playMusic( gAssets.MUSIC.hurryUp );
+	elseif self._timeLeft >= 25 and gCurrentMusic ~= gAssets.MUSIC.hidden and gCurrentMusic ~= gAssets.MUSIC.theme then
+		self:playMusic( getRandomTheme() ); 
+	end
 	if not self._gameOver then
 		self._score = self._score + dt;
 		self._gameOver = self._timeLeft < 0;
