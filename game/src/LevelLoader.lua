@@ -11,6 +11,7 @@ end
 
 LevelLoader.loadLevel = function(self, levelName)
     local levelData = require("assets/levels/"..levelName);
+	local tileSize = 28;
     local entities = {};
     entities.pickups = {};
 
@@ -23,13 +24,13 @@ LevelLoader.loadLevel = function(self, levelName)
 			else
 				table.insert(entities.pickups, {
 					ent = pickupIndex,
-					x = object.x,
-					y = object.y
+					x = object.x + tileSize/2,
+					y = object.y + tileSize/2,
 				});
 			end
 		end
     end
-	
+
     table.sort(entities.pickups, compareEnts);
     return entities;
 end
