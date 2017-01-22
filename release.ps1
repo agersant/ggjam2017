@@ -4,7 +4,7 @@ If (Test-Path $archive){
 }
 Compress-Archive -Path "game/*" -CompressionLevel Fastest -DestinationPath $archive
 
-$out = "release.exe"
+$out = "Sparky And The Other Fish.exe"
 If (Test-Path $out){
         Remove-Item $out
 }
