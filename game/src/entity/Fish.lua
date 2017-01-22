@@ -30,7 +30,6 @@ Fish.init = function(self, scene, options)
 	self._angularForce = 245;
 	self._foresight = 3;
 	self._currentLevel = 0;
-	self._angularSpeed = 180;
 	self._player = options.player;
 	self._bodyRadius = 10;
 	self._fishBounce = 150;
