@@ -23,16 +23,16 @@ BumperSpawner.spawnLogic = function(self, script)
 			self:despawn();
 			return;
 		end
-		local scorecheck = math.floor(100 * self._scene:getScore());
+		local scorecheck = self._scene:getScore();
 		if scorecheck > 8000 then
-		math.randomseed( os.time() );
-		timer = math.random(1, 4);
+			math.randomseed( os.time() );
+			timer = math.random(1, 4);
 		elseif scorecheck > 5000 then
-		math.randomseed( os.time() );
-		timer = math.random(3, 6);
+			math.randomseed( os.time() );
+			timer = math.random(3, 6);
 		elseif scorecheck > 3000 then
-		math.randomseed( os.time() );
-		timer = math.random(6, 8);
+			math.randomseed( os.time() );
+			timer = math.random(6, 8);
 		else
 			timer = 8;
 		end

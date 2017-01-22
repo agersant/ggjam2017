@@ -36,7 +36,7 @@ Bumper.init = function(self, scene, options)
 		end
 	end
 	
-	local scorecheck = math.floor(100 * self._scene:getScore());
+	local scorecheck = self._scene:getScore();
 	if scorecheck > 10000 then
 		math.randomseed( os.time() );
 		speed = math.random(150, 800);
