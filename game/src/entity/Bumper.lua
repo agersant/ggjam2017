@@ -35,8 +35,22 @@ Bumper.init = function(self, scene, options)
 			xs = 1;
 		end
 	end
-
-	local speed = 100;
+	
+	local scorecheck = math.floor(100 * self._scene:getScore());
+	if scorecheck > 10000 then
+		math.randomseed( os.time() );
+		speed = math.random(150, 800);
+	elseif scorecheck > 4000 then
+		math.randomseed( os.time() );
+		speed = math.random(100, 400);
+	elseif scorecheck > 2000 then
+		math.randomseed( os.time() );
+		speed = math.random(100, 200);
+		else
+		speed = 100;
+	end 
+	
+	
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), x, y, "dynamic");
 	self._body:setUserData(self);
