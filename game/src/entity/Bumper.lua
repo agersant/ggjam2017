@@ -8,7 +8,7 @@ local Bumper = Class("Bumper", Entity);
 Bumper.init = function(self, scene, options)
 	Bumper.super.init(self, scene);
 
-	local physicsRadius = 60;
+	local physicsRadius = 50;
 
 	local x, y;
 	local xs, ys = 0, 0;
@@ -40,7 +40,7 @@ Bumper.init = function(self, scene, options)
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), x, y, "dynamic");
 	self._body:setUserData(self);
-	self._body:setMass(9000);
+	self._body:setMass(1500);
 	self._body:setLinearVelocity(xs * speed, ys * speed);
 
 	self._shape = love.physics.newCircleShape(physicsRadius);
