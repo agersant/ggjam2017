@@ -35,7 +35,7 @@ return {
           visible = true,
           properties = {
             ["chunk"] = "0",
-            ["ent"] = "2"
+            ["ent"] = "0"
           }
         },
         {
@@ -67,7 +67,7 @@ return {
           visible = true,
           properties = {
             ["chunk"] = "0",
-            ["ent"] = "0"
+            ["ent"] = "2"
           }
         },
         {
@@ -82,8 +82,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2",
-            ["ent"] = "8"
+            ["chunk"] = "1",
+            ["ent"] = "3"
           }
         },
         {
@@ -98,8 +98,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2",
-            ["ent"] = "7"
+            ["chunk"] = "1",
+            ["ent"] = "4"
           }
         },
         {
@@ -107,15 +107,15 @@ return {
           name = "Collect",
           type = "pickup",
           shape = "rectangle",
-          x = 280,
-          y = 392,
+          x = 168,
+          y = 308,
           width = 28,
           height = 28,
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "2",
-            ["ent"] = "6"
+            ["chunk"] = "1",
+            ["ent"] = "5"
           }
         },
         {
@@ -130,8 +130,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1",
-            ["ent"] = "5"
+            ["chunk"] = "2",
+            ["ent"] = "6"
           }
         },
         {
@@ -146,8 +146,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1",
-            ["ent"] = "4"
+            ["chunk"] = "2",
+            ["ent"] = "7"
           }
         },
         {
@@ -162,8 +162,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["chunk"] = "1",
-            ["ent"] = "3"
+            ["chunk"] = "2",
+            ["ent"] = "8"
           }
         }
       }
