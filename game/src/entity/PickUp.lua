@@ -105,7 +105,7 @@ PickUp.pickup = function(self, wasFinal)
 	end
 	self._currentSound = getNewSound();
 	love.audio.play( self._currentSound );
-	local timeEarned = wasFinal and 5 or 1;
+	local timeEarned = wasFinal and 2 or 1;
 	local scene = self:getScene();
 	scene:giveExtraTime(timeEarned);
 	scene:spawn(TimeNotify, {time = timeEarned, source = self});
