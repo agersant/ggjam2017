@@ -15,10 +15,14 @@ end
 
 HUD.render = function(self)
 	local timeLeft = self._scene:getTimeLeft();
-	if self._scene:isOver() then
+	local isOver = self._scene:isOver();
+
+	if isOver then
 		timeLeft = 0;
+		local w = 400;
+		local x = (640 - w) / 2;
 		love.graphics.setColor(0, 0, 0, 180);
-		love.graphics.rectangle("fill", 40, 120, 560, 560);
+		love.graphics.rectangle("fill", x, 350, w, 240);
 	end
 
 
@@ -32,8 +36,8 @@ HUD.render = function(self)
 	love.graphics.setFont(self._scoreFont);
 	love.graphics.printf("Score: " .. score, 40, 40, 640, "left");
 
-	if self._scene:isOver() then
-		love.graphics.printf("Press space to continue", 0, 510, 640, "center");
+	if isOver then
+		love.graphics.printf("Press Space To Continue", 0, 550, 640, "center");
 		love.graphics.setFont(self._gameOverFont);
 		love.graphics.printf("GAME OVER", 0, 400, 640, "center");
 		love.graphics.printf("Score: " .. score, 0, 450, 640, "center");
