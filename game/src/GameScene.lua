@@ -56,10 +56,6 @@ GameScene.init = function(self)
 
 	self._fishSparky = self:spawn(Fish, { player = Fish.sparky });
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
-	self:spawnPickup('level1-1', self._fishSparky, 1);
-	self:spawnPickup('level1-1', self._fishSparky, 2);
-	self:spawnPickup('level1-1', self._fishSparky, 3);
-	-- self:spawnPickups('level1-2', self._fishOther);
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
 end
 
@@ -192,17 +188,6 @@ GameScene.doGameOver = function(self)
 		script:waitForInput("space");
 		Scene:setCurrent(CreditsScene:new());
 	end));
-end
-
-GameScene.spawnPickup = function(self, levelName, fish, index)
-	local level = LevelLoader:loadLevel(levelName);
-	local pickupOptions = {
-		props = level.pickups[index],
-		fish = fish,
-	};
-	local pickup = self:spawn(PickUp, pickupOptions);
-	fish._currentLevelPickups = level.numPickups;
-	fish._lastEntSpawned = pickup._ent;
 end
 
 GameScene.getTimeLeft = function(self)
