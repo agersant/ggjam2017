@@ -17,6 +17,9 @@ HUD.render = function(self)
 	local timeLeft = self._scene:getTimeLeft();
 	local isOver = self._scene:isOver();
 
+	love.graphics.setColor(0, 0, 0, 180);
+	love.graphics.rectangle("fill", 0, 0, 640, 80);
+
 	if isOver then
 		timeLeft = 0;
 		local w = 400;
