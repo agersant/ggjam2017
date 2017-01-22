@@ -73,7 +73,7 @@ PickUp.collideWith = function(self, object)
 end
 
 PickUp.pickup = function(self, wasFinal)
-	local timeEarned = wasFinal and 5 or 2;
+	local timeEarned = wasFinal and 5 or 1;
 	local scene = self:getScene();
 	scene:giveExtraTime(timeEarned);
 	scene:spawn(TimeNotify, {time = timeEarned, source = self});
