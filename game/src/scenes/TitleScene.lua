@@ -15,7 +15,6 @@ TitleScene.init = function(self)
 
 	math.randomseed( os.time() );
 	local songRandom = math.random( 1, 10 );
-	print( songRandom );
 	if songRandom == 1 then
 		self:playMusic( gAssets.MUSIC.hidden );
 	else
