@@ -37,7 +37,7 @@ Bumper.init = function(self, scene, options)
 	end
 	
 	local scorecheck = self._scene:getScore();
-	if scorecheck > 20000 then --Ludwig Level
+	if scorecheck > 12000 then --Ludwig Level
 		speed = math.random(25, 800);
 	elseif scorecheck > 10000 then
 		speed = math.random(150, 800);
