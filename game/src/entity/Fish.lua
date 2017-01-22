@@ -29,7 +29,7 @@ Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 225;
 	self._angularForce = 3300;
-	self._foresight = 3;
+	self._foresight = 2;
 	self._levelsLoaded = 0; 
 	self._player = options.player;
 	self._bodyRadius = 20;
