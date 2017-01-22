@@ -28,7 +28,9 @@ Fish.other = {
 Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 225;
+	self._puffForce = 100;
 	self._angularForce = 3300;
+	self._puffAngularForce = 1700;
 	self._foresight = 2;
 	self._levelsLoaded = 0; 
 	self._player = options.player;
@@ -126,7 +128,9 @@ Fish.update = function(self, dt)
 	local pressingForward = love.keyboard.isDown(self._player.up);
 	local pressingAnything = pressingLeft or pressingRight or pressingForward;
 
-	if not self._puffed and not self:getScene():isOver() then
+	if not self:getScene():isOver() then
+		local angularForce = self._puffed and self._puffAngularForce or self._angularForce;
+		local force = self._puffed and self._puffForce or self._force;
 		local xs = 0;
 		if pressingLeft then
 			xs = -1; 
@@ -134,11 +138,11 @@ Fish.update = function(self, dt)
 		if pressingRight then
 			xs = 1;
 		end
-		self._body:applyAngularImpulse(xs * dt * self._angularForce);
+		self._body:applyAngularImpulse(xs * dt * angularForce);
 
 		local angle = self._body:getAngle();
 		if pressingForward then
-			self._body:applyLinearImpulse(self._force * math.cos(angle) * dt, self._force * math.sin(angle) * dt);
+			self._body:applyLinearImpulse(force * math.cos(angle) * dt, force * math.sin(angle) * dt);
 		end
 	end
 
