@@ -14,6 +14,7 @@ gAssets = {
 	CHAR = {},
 	SOUND = {},
 	MUSIC = {},
+	ITEMS = {},
 }
 
 
@@ -111,6 +112,7 @@ love.load = function()
 	gAssets.SOUND.secretBub5 = love.audio.newSource( "assets/sfx/secretBub5.mp3" );
 
 	gAssets.BG.game = love.graphics.newImage("assets/backgrounds/playspace_bg.png")
+	gAssets.ITEMS.bumber = love.graphics.newImage("assets/sprites/bouncer.png");
 
 	Scene:setCurrent(TitleScene:new());
 end
