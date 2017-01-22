@@ -2,11 +2,12 @@ require("src/utils/OOP");
 local AmbientBubbles = Class("AmbientBubbles", AmbientBubbles);
 
 AmbientBubbles.init = function(self)
-    self._bubbleImgs = {love.graphics.newImage("assets/sprites/bubbleA.png"), love.graphics.newImage("assets/sprites/bubbleB.png")};
+    self._bubbleImgs = {love.graphics.newImage("assets/sprites/bubbleA.png"), love.graphics.newImage("assets/sprites/bubbleB.png"),love.graphics.newImage("assets/sprites/bubbleClear.png")};
     self._bubbles = {};
 	for i = 1,10 do
 		table.insert(self._bubbles,{x=0, y=-90, speed=1, img=1});
 		table.insert(self._bubbles,{x=0, y=-90, speed=1, img=2});
+		table.insert(self._bubbles,{x=0, y=-90, speed=1, img=3});
 	end
 end
 

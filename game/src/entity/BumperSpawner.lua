@@ -23,14 +23,23 @@ BumperSpawner.spawnLogic = function(self, script)
 			self:despawn();
 			return;
 		end
-		local scorecheck = self._scene:getScore();
-		if scorecheck > 12000 then -- The Gersant Level
+		local scoreCheck = self._scene:getScore();
+		if scoreCheck > 30000 then
+			timer = math.random( 5, 10 );
+			timer = timer / 10;
+		elseif scoreCheck > 25000 then
+			timer = math.random( 8, 15 );
+			timer = timer / 10;
+		elseif scoreCheck > 18000 then
+			timer = math.random( 9, 20 );
+			timer = timer / 10;
+		elseif scoreCheck > 12000 then -- The Gersant Level
 			timer = math.random(1, 3);
-		elseif scorecheck > 8000 then
+		elseif scoreCheck > 8000 then
 			timer = math.random(1, 4);
-		elseif scorecheck > 5000 then
+		elseif scoreCheck > 5000 then
 			timer = math.random(3, 6);
-		elseif scorecheck > 3000 then
+		elseif scoreCheck > 3000 then
 			timer = math.random(6, 8);
 		else
 			timer = 8;
