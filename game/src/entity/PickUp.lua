@@ -26,8 +26,7 @@ end
 
 PickUp.addedToScene = function(self)
 	local physicsRadius = 20;
-	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
-	self._body:setPosition(self._xRef, self._yRef);
+	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), self._xRef, self._yRef, "dynamic");
 	self._body:setUserData(self);
 	self._body:setLinearVelocity(0, math.random(-20, 20));
 	self._shape = love.physics.newCircleShape(physicsRadius);
@@ -40,6 +39,8 @@ PickUp.getPosition = function(self)
 end
 
 PickUp.update = function(self, dt)
+
+	PickUp.super.update(self, dt);
 
 	local x, y = self._body:getPosition();
 	if y > self._yRef + 8 then

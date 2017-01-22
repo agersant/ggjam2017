@@ -23,9 +23,9 @@ BumperSpawner.spawnLogic = function(self, script)
 			self:despawn();
 			return;
 		end
-		
-		scene:spawn(Bumper, {});
+
 		script:wait(8);
+		scene:spawn(Bumper, {});
 
 	end
 
