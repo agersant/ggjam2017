@@ -86,12 +86,14 @@ Fish.script = function(self, script)
 	script:thread(function(script)
 		while true do
 			script:wait(math.random(1, 5)/15);
-			local scene = self:getScene();
-			local x, y = self._body:getPosition();
-			local a = self._body:getAngle();
-			local px = x + 60 * math.cos(a);
-			local py = y + 60 * math.sin(a);
-			scene:spawn(BubbleFart, {x = px, y = py });
+			if self._pressingAnything then
+				local scene = self:getScene();
+				local x, y = self._body:getPosition();
+				local a = self._body:getAngle();
+				local px = x + 60 * math.cos(a);
+				local py = y + 60 * math.sin(a);
+				scene:spawn(BubbleFart, {x = px, y = py });
+			end
 		end
 	end);
 end
@@ -140,7 +142,7 @@ Fish.update = function(self, dt)
 	local pressingLeft = love.keyboard.isDown(self._player.left);
 	local pressingRight = love.keyboard.isDown(self._player.right);
 	local pressingForward = love.keyboard.isDown(self._player.up);
-	local pressingAnything = pressingLeft or pressingRight or pressingForward;
+	self._pressingAnything = pressingLeft or pressingRight or pressingForward;
 
 	if not self:getScene():isOver() then
 		local angularForce = self._puffed and self._puffAngularForce or self._angularForce;
@@ -162,7 +164,7 @@ Fish.update = function(self, dt)
 
 	if self._puffed then
 		self:playAnimation("puff");
-	elseif pressingAnything then
+	elseif self._pressingAnything then
 		self:playAnimation("swim");
 	else
 		self:playAnimation("idle");
