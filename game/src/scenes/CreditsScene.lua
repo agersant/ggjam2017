@@ -14,14 +14,60 @@ CreditsScene.init = function(self)
 Made by The Goobs for
 Global Game Jam 2017
 
-Cody Malach: Design, Code, Music
-Devin Curry: Code, Art
-Amanda Newman: Art, Art, Art
-David Ludwig: Design
-Antoine Gersant: Code, Design, Audio
+
+Art
+
+Amanda Newman
+Devin Curry
+
+
+Audio
+
+Antoine Gersant
+Cody Malach
+
+
+Code
+
+Antoine Gersant
+Cody Malach
+Devin Curry
+
+
+Design
+
+Amanda Newman
+Antoine Gersant
+Cody Malach
+David Ludwig
+
+
+Flute Diddler
+
+Devin Curry
+
+
+Level Smith
+
+David Ludwig
+
+
+Opera
+
+Amanda Newman
+
+
 
 So long, and thanks for all the fish!
 	]];
+
+	--[[
+		Amanda Newman: Art, Design, Opera
+Antoine Gersant: Code, Audio, Design
+Cody Malach: Design, Audio, Code
+David Ludwig: Design, Level Smith
+Devin Curry: Code, Art, Flute Diddler
+	]]
 
 	self._script = Script:new(self, function(script)
 		script:wait(.1);
@@ -33,7 +79,7 @@ end
 CreditsScene.update = function(self, dt)
 	self._script:update(dt);
 	self._textY = self._textY - dt * 50;
-	if self._textY < -500 then
+	if self._textY < -1200 then
 		self:nextScene();
 	end
 end
