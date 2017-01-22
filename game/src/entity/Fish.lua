@@ -79,7 +79,9 @@ Fish.loadNextLevel = function(self)
 	if self._levelsLoaded < 3 then
 		levelToLoad = self._levelsLoaded + 1;
 	else
-		levelToLoad = math.random(1, gNumLevels);
+		repeat
+			levelToLoad = math.random(1, gNumLevels);
+		until levelToLoad ~= self._previousLevel;
 	end
 	local levelName = "level" .. levelToLoad .. "-" .. self._player.findex;
 	local levelData = LevelLoader:loadLevel(levelName);
@@ -88,6 +90,7 @@ Fish.loadNextLevel = function(self)
 	end
 	table.insert(self._levelLengths, #levelData.pickups);
 	self._levelsLoaded = self._levelsLoaded + 1;
+	self._previousLevel = levelToLoad;
 end
 
 Fish.update = function(self, dt)
