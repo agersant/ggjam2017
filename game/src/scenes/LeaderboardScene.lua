@@ -22,7 +22,7 @@ end
 LeaderboardScene.update = function(self, dt)
 	if not self._playerRank then
 		local now = love.timer.getTime();
-		if now - self._startTime > 2 then
+		if now - self._startTime > .1 then
 			self._completedInput = true;
 		end
 	end

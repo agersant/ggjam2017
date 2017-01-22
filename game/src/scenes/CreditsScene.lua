@@ -22,14 +22,24 @@ Antoine Gersant: Code, Design, Audio
 
 So long, and thanks for all the fish!
 	]];
+
+	self._script = Script:new(self, function(script)
+		script:wait(.1);
+		script:waitForInput("space");
+		self:nextScene();
+	end);
 end
 
 CreditsScene.update = function(self, dt)
+	self._script:update(dt);
 	self._textY = self._textY - dt * 50;
 	if self._textY < -500 then
-		local scene = TitleScene:new();
-		Scene:setCurrent(scene);
+		self:nextScene();
 	end
+end
+
+CreditsScene.nextScene = function(self)
+	Scene:setCurrent(TitleScene:new());
 end
 
 CreditsScene.draw = function(self)
