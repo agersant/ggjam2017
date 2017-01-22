@@ -69,16 +69,15 @@ PickUp.collideWith = function(self, object)
 	end
 	if self._fish == object and self._grabbable then
 		object:pickedUpItem(self);
-		self:grantTime();
-		self:despawn();
 	end
 end
 
-PickUp.grantTime = function(self)
-	local timeEarned = 2;
+PickUp.pickup = function(self, wasFinal)
+	local timeEarned = wasFinal and 5 or 2;
 	local scene = self:getScene();
 	scene:giveExtraTime(timeEarned);
 	scene:spawn(TimeNotify, {time = timeEarned, source = self});
+	self:despawn();
 end
 
 return PickUp;

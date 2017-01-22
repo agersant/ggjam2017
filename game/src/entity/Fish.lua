@@ -139,9 +139,10 @@ Fish.pickedUpItem = function(self, pickup)
 	assert(self._levelLengths[1] > 0);
 	if self._levelLengths[1] == 1 then
 		table.remove(self._levelLengths, 1);
-		-- COMPLETED CHAIN
+		pickup:pickup(true);
 	else
 		self._levelLengths[1] = self._levelLengths[1] - 1;
+		pickup:pickup(false);
 	end
 	self:spawnNextPickUp();
 end
