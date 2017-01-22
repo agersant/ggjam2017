@@ -62,6 +62,9 @@ PickUp.render = function(self)
 end
 
 PickUp.collideWith = function(self, object)
+	if self:getScene():isOver() then
+		return;
+	end
 	if self._fish == object and self._grabbable then
 		object:pickedUpItem(self);
 		self:grantTime();

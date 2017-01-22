@@ -52,6 +52,10 @@ Fish.update = function(self, dt)
 
 	Fish.super.update(self, dt);
 
+	if self:getScene():isOver() then
+		return;
+	end
+
 	local xs = 0;
 	if love.keyboard.isDown(self._player.left) then
 		xs = -1; 

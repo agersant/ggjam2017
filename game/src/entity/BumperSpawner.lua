@@ -19,6 +19,11 @@ BumperSpawner.spawnLogic = function(self, script)
 	local scene = self:getScene();
 	while true do
 
+		if scene:isOver() then
+			self:despawn();
+			return;
+		end
+		
 		scene:spawn(Bumper, {});
 		script:wait(8);
 

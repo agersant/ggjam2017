@@ -41,7 +41,7 @@ GameScene.init = function(self)
 	);
 	self:spawnEdges();
 
-	self._timeLeft = 60;
+	self._timeLeft = 10;
 	self._hud = HUD:new(self);
 
 	self:update(0);
@@ -90,6 +90,7 @@ GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
 	
 	self._timeLeft = self._timeLeft - dt;
+	self._gameOver = self._gameOver or self._timeLeft < 0;
 	self._world:update(dt);
 
 	self._canProcessSignals = true;
@@ -148,6 +149,10 @@ GameScene.draw = function(self)
 
 	self._hud:render();
 	
+end
+
+GameScene.isOver = function(self)
+	return self._gameOver;
 end
 
 GameScene.spawn = function(self, class, options)
