@@ -22,14 +22,14 @@ Fish.other = {
 
 Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
-	self._force = 250;
+	self._force = 225;
+	self._angularForce = 245;
 	self._foresight = 3;
 	self._currentLevel = 1;
 	self._currentLevelPickups = 0;
 	self._lastPickupEnt = 0;
-	self._lastEntSpawned = 0;
+	self._lastEntSpawned =   0;
 	self._totalPickups = 0;
-	self._angularSpeed = 180;
 	self._player = options.player;
 	self._bodyRadius = 10;
 
@@ -65,7 +65,7 @@ Fish.update = function(self, dt)
 	if love.keyboard.isDown(self._player.right) then
 		xs = 1;
 	end
-	self._body:applyAngularImpulse(xs * dt * self._angularSpeed);
+	self._body:applyAngularImpulse(xs * dt * self._angularForce);
 
 	local angle = self._body:getAngle();
 	if love.keyboard.isDown(self._player.up) then
