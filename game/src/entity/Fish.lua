@@ -9,6 +9,7 @@ local LevelLoader = require("src/LevelLoader");
 local AnimatedSprite = require("src/gfx/AnimatedSprite");
 local PickUp = require("src/entity/PickUp");
 local Bumper = require("src/entity/Bumper");
+local BubbleFart = require("src/entity/BubbleFart");
 local AmbientBubbles = require("src/AmbientBubbles");
 
 Fish.sparky = {
@@ -38,7 +39,6 @@ Fish.init = function(self, scene, options)
 	self._bodyRadius = 20;
 	self._fishBounce = 250;
 	self._isNearTop = true;
-	self:setupSwimParticles();
 
 	self:addScriptRunner();
 	self:addScript(Script:new(self, function(script)
@@ -70,15 +70,6 @@ Fish.init = function(self, scene, options)
 	end
 end
 
-Fish.setupSwimParticles = function(self)
-	self._swimParticles = love.graphics.newParticleSystem( AmbientBubbles._bubbleImgs[3], 32 );
-	self._swimParticles:setParticleLifetime(2, 5) -- Particles live at least 2s and at most 5s.
-	self._swimParticles:setEmissionRate(5)
-	self._swimParticles:setSizeVariation(1)
-	self._swimParticles:setLinearAcceleration(-20, -20, 20, 20) -- Random movement in all directions.
-	self._swimParticles:setColors(255, 255, 255, 255, 255, 255, 255, 0) -- Fade to transparency.
-end
-
 Fish.script = function(self, script)
 	script:thread(function(script)
 		while true do
@@ -89,6 +80,18 @@ Fish.script = function(self, script)
 				script:wait(1);
 				self._puffed = false;
 			end);
+		end
+	end);
+
+	script:thread(function(script)
+		while true do
+			script:wait(math.random(1, 5)/15);
+			local scene = self:getScene();
+			local x, y = self._body:getPosition();
+			local a = self._body:getAngle();
+			local px = x + 60 * math.cos(a);
+			local py = y + 60 * math.sin(a);
+			scene:spawn(BubbleFart, {x = px, y = py });
 		end
 	end);
 end
@@ -133,7 +136,6 @@ Fish.update = function(self, dt)
 
 	Fish.super.update(self, dt);
 	self._waterSprite:update(dt);
-	self._swimParticles:update(dt)
 
 	local pressingLeft = love.keyboard.isDown(self._player.left);
 	local pressingRight = love.keyboard.isDown(self._player.right);
@@ -173,14 +175,10 @@ Fish.render = function(self)
 	local x, y = self._body:getPosition();
 	local angle = self._body:getAngle();
 
-	love.graphics.setColor(255, 255, 255, 255);
-	love.graphics.draw(self._swimParticles, x, y);
-	-- love.graphics.draw(self._swimParticles, love.graphics.getWidth() * 0.5, love.graphics.getHeight() * 0.5);
-
 	love.graphics.push();
 
+	love.graphics.setColor(255, 255, 255, 255);
 	love.graphics.translate(x, y);
-
 
 	love.graphics.push()
 	love.graphics.rotate(angle);
