@@ -37,7 +37,6 @@ HUD.render = function(self)
 	love.graphics.printf("Score: " .. score, 15, 8, 640, "left");
 
 	if isOver then
-		love.graphics.setColor(0, 0, 0, 180);
 		love.graphics.printf("Press Space To Continue", 0, 550, 640, "center");
 		love.graphics.setFont(self._gameOverFont);
 		love.graphics.printf("GAME OVER", 0, 400, 640, "center");
