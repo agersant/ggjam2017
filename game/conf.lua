@@ -3,10 +3,10 @@ io.stderr:setvbuf("no");
 
 love.conf = function(options)
 	options.console = false;
-	options.window.title = "Global Game Jam 2017";
+	options.window.title = "Sparky And The Other Fish";
 	options.window.width = 640;
 	options.window.height = 720;
-	options.window.resizable = true;
+	options.window.resizable = false;
 	options.window.msaa = 8;
 	options.window.vsync = false;
 	
