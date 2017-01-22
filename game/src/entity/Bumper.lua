@@ -65,7 +65,7 @@ end
 
 Bumper.render = function(self)
 	love.graphics.setColor(255, 255, 255, 255);
-	love.graphics.draw(gAssets.ITEMS.bumber, self._body:getX(), self._body:getY(), 0, 1, 1, 64, 64);
+	love.graphics.draw(gAssets.ITEMS.bumper, self._body:getX(), self._body:getY(), 0, 1, 1, 64, 64);
 	if gDrawPhysics then
 		Debug.drawCircleShape(self._body, self._shape);
 	end

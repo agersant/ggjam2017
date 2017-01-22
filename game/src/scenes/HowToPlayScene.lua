@@ -40,7 +40,7 @@ HowToPlayScene.draw = function(self)
 	love.graphics.draw( AmbientBubbles._bubbleImgs[1], 95, 252 );
 	love.graphics.draw( self._otherFishImg, 0, 318 );
 	love.graphics.draw( AmbientBubbles._bubbleImgs[2], 95, 380 );
-	love.graphics.draw( gAssets.ITEMS.bumber, 0, 470 );
+	love.graphics.draw( gAssets.ITEMS.bumper, 0, 470 );
 
 	love.graphics.setColor(240, 228, 199, 255);
 	love.graphics.setFont(self._titleFont);
