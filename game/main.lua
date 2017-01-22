@@ -5,7 +5,7 @@ local GameScene = require("src/GameScene");
 local TitleScene = require("src/scenes/TitleScene");
 
 gDrawPhysics = false;
-gNumLevels = 8;
+gNumLevels = 9;
 
 gCurrentMusic = nil;
 gAssets = {
