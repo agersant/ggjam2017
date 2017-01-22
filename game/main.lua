@@ -127,10 +127,15 @@ love.load = function()
 	gAssets.BG.kelp = love.graphics.newImage("assets/backgrounds/kelp.png")
 	gAssets.ITEMS.bumper = love.graphics.newImage("assets/sprites/bouncer.png");
 	gAssets.ITEMS.waterSurface = {
-		love.graphics.newImage("assets/sprites/waterSurface/waterSurface1.png"),
-		love.graphics.newImage("assets/sprites/waterSurface/waterSurface2.png"),
-		love.graphics.newImage("assets/sprites/waterSurface/waterSurface3.png"),
-		love.graphics.newImage("assets/sprites/waterSurface/waterSurface4.png"),
+		idle = {
+			frames = {
+				love.graphics.newImage("assets/sprites/waterSurface/waterSurface1.png"),
+				love.graphics.newImage("assets/sprites/waterSurface/waterSurface2.png"),
+				love.graphics.newImage("assets/sprites/waterSurface/waterSurface3.png"),
+				love.graphics.newImage("assets/sprites/waterSurface/waterSurface4.png"),
+			},
+			fps = 12,
+		},
 	};
 
 	Scene:setCurrent(TitleScene:new());

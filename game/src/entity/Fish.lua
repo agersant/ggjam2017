@@ -56,6 +56,8 @@ Fish.init = function(self, scene, options)
 	local spriteData = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
 	self:addSprite(AnimatedSprite:new(spriteData));
 	self:playAnimation("idle");
+	self._waterSprite = AnimatedSprite:new(gAssets.ITEMS.waterSurface);
+	self._waterSprite:playAnimation("idle");
 
 	self._upcomingPickUps = {};
 	self._levelLengths = {};
@@ -117,17 +119,14 @@ end
 Fish.update = function(self, dt)
 
 	Fish.super.update(self, dt);
-
-	if self:getScene():isOver() then
-		return;
-	end
+	self._waterSprite:update(dt);
 
 	local pressingLeft = love.keyboard.isDown(self._player.left);
 	local pressingRight = love.keyboard.isDown(self._player.right);
 	local pressingForward = love.keyboard.isDown(self._player.up);
 	local pressingAnything = pressingLeft or pressingRight or pressingForward;
 
-	if not self._puffed then
+	if not self._puffed and not self:getScene():isOver() then
 		local xs = 0;
 		if pressingLeft then
 			xs = -1; 
@@ -151,28 +150,29 @@ Fish.update = function(self, dt)
 		self:playAnimation("idle");
 	end
 
-	if self._body:getY() <= 35 then
-		self._isNearTop = true;
-	else
-		self._isNearTop = false;
-	end
+	self._isNearTop = self._body:getY() <= 35;
 end
 
 Fish.render = function(self)
 	local x, y = self._body:getPosition();
 	local angle = self._body:getAngle();
-	love.graphics.push()
-	love.graphics.translate(x, y);
-	love.graphics.rotate(angle);
 
+	love.graphics.push();
+
+	love.graphics.translate(x, y);
 	love.graphics.setColor(255, 255, 255, 255);
+
+	love.graphics.push()
+	love.graphics.rotate(angle);
 	self._sprite:render(0, -5);
 	love.graphics.pop();
 
 	if self._isNearTop then
-		-- TODO: Play the animation (4 frames)
-		love.graphics.draw(gAssets.ITEMS.waterSurface[1], self._body:getX() - 60, -5);
+		self._waterSprite:render(0, -5);
 	end
+
+	love.graphics.pop();
+	
 
 	if gDrawPhysics then
 		Debug.drawCircleShape(self._body, self._shape);
