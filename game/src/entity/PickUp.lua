@@ -15,6 +15,7 @@ PickUp.init = function(self, scene, entityData)
 	self._fish = entityData.fish;
 	assert(self._fish);
 
+	self._pickupData = entityData.props;
 	self._ent = entityData.props.ent; -- use this for sorting the pickup order
 	self._xRef = entityData.props.x;
 	self._yRef = entityData.props.y;
@@ -49,7 +50,7 @@ PickUp.update = function(self, dt)
 		self._body:applyLinearImpulse(0, dt * 100);
 	end  
 
-	self._grabbable = self._ent == self._fish._lastPickupEnt + 1;
+	self._grabbable = self._pickupData == self._fish:getNextPickUp();
 end
 
 PickUp.render = function(self)
@@ -68,16 +69,15 @@ PickUp.collideWith = function(self, object)
 	end
 	if self._fish == object and self._grabbable then
 		object:pickedUpItem(self);
-		self:grantTime();
-		self:despawn();
 	end
 end
 
-PickUp.grantTime = function(self)
-	local timeEarned = 2;
+PickUp.pickup = function(self, wasFinal)
+	local timeEarned = wasFinal and 5 or 1;
 	local scene = self:getScene();
 	scene:giveExtraTime(timeEarned);
 	scene:spawn(TimeNotify, {time = timeEarned, source = self});
+	self:despawn();
 end
 
 return PickUp;

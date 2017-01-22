@@ -8,7 +8,7 @@ return {
   height = 20,
   tilewidth = 28,
   tileheight = 28,
-  nextobjectid = 26,
+  nextobjectid = 25,
   properties = {},
   tilesets = {},
   layers = {
@@ -23,12 +23,12 @@ return {
       properties = {},
       objects = {
         {
-          id = 2,
-          name = "Collect",
+          id = 1,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 224,
-          y = 28,
+          x = 56,
+          y = 224,
           width = 28,
           height = 28,
           rotation = 0,
@@ -39,12 +39,12 @@ return {
           }
         },
         {
-          id = 3,
-          name = "Collect",
+          id = 2,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
           x = 56,
-          y = 112,
+          y = 56,
           width = 28,
           height = 28,
           rotation = 0,
@@ -55,12 +55,12 @@ return {
           }
         },
         {
-          id = 4,
-          name = "Collect",
+          id = 3,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 252,
-          y = 196,
+          x = 504,
+          y = 56,
           width = 28,
           height = 28,
           rotation = 0,
@@ -71,12 +71,12 @@ return {
           }
         },
         {
-          id = 6,
-          name = "Collect",
+          id = 4,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 56,
-          y = 308,
+          x = 420,
+          y = 140,
           width = 28,
           height = 28,
           rotation = 0,
@@ -87,12 +87,12 @@ return {
           }
         },
         {
-          id = 7,
-          name = "Collect",
+          id = 5,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 168,
-          y = 504,
+          x = 364,
+          y = 28,
           width = 28,
           height = 28,
           rotation = 0,
@@ -103,12 +103,80 @@ return {
           }
         },
         {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 84,
+          y = 224,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = -140 }
+          },
+          properties = {}
+        },
+        {
           id = 8,
-          name = "Collect",
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 84,
+          y = 84,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 420, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 9,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 504,
+          y = 84,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -56, y = 56 }
+          },
+          properties = {}
+        },
+        {
+          id = 10,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 420,
+          y = 140,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -28, y = -84 }
+          },
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 476,
-          y = 448,
+          x = 504,
+          y = 420,
           width = 28,
           height = 28,
           rotation = 0,
@@ -119,12 +187,12 @@ return {
           }
         },
         {
-          id = 9,
-          name = "Collect",
+          id = 12,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 280,
-          y = 336,
+          x = 392,
+          y = 504,
           width = 28,
           height = 28,
           rotation = 0,
@@ -135,12 +203,12 @@ return {
           }
         },
         {
-          id = 10,
-          name = "Collect",
+          id = 13,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 476,
-          y = 168,
+          x = 280,
+          y = 392,
           width = 28,
           height = 28,
           rotation = 0,
@@ -151,12 +219,12 @@ return {
           }
         },
         {
-          id = 11,
-          name = "Collect",
+          id = 14,
+          name = "Collect0",
           type = "pickup",
           shape = "rectangle",
-          x = 364,
-          y = 56,
+          x = 168,
+          y = 504,
           width = 28,
           height = 28,
           rotation = 0,
@@ -167,11 +235,59 @@ return {
           }
         },
         {
+          id = 15,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 28,
+          y = 448,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "3",
+            ["ent"] = "9"
+          }
+        },
+        {
+          id = 16,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 252,
+          y = 308,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "3",
+            ["ent"] = "10"
+          }
+        },
+        {
           id = 17,
+          name = "Collect0",
+          type = "pickup",
+          shape = "rectangle",
+          x = 112,
+          y = 336,
+          width = 28,
+          height = 28,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["chunk"] = "3",
+            ["ent"] = "11"
+          }
+        },
+        {
+          id = 18,
           name = "",
           type = "",
           shape = "polyline",
-          x = 224,
+          x = 392,
           y = 56,
           width = 0,
           height = 0,
@@ -179,24 +295,7 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = -140, y = 56 }
-          },
-          properties = {}
-        },
-        {
-          id = 18,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 84,
-          y = 112,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 168, y = 84 }
+            { x = 140, y = 364 }
           },
           properties = {}
         },
@@ -205,15 +304,15 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 252,
-          y = 224,
+          x = 504,
+          y = 448,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = -168, y = 84 }
+            { x = -84, y = 56 }
           },
           properties = {}
         },
@@ -222,15 +321,32 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 84,
-          y = 336,
+          x = 392,
+          y = 504,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 84, y = 168 }
+            { x = -84, y = -84 }
+          },
+          properties = {}
+        },
+        {
+          id = 21,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 280,
+          y = 420,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -84, y = 84 }
           },
           properties = {}
         },
@@ -239,7 +355,7 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 196,
+          x = 168,
           y = 504,
           width = 0,
           height = 0,
@@ -247,7 +363,7 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 280, y = -28 }
+            { x = -112, y = -28 }
           },
           properties = {}
         },
@@ -256,7 +372,7 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 476,
+          x = 56,
           y = 448,
           width = 0,
           height = 0,
@@ -264,7 +380,7 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = -168, y = -84 }
+            { x = 196, y = -112 }
           },
           properties = {}
         },
@@ -273,32 +389,15 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 308,
-          y = 336,
+          x = 252,
+          y = 308,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 168, y = -140 }
-          },
-          properties = {}
-        },
-        {
-          id = 25,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 476,
-          y = 168,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -84, y = -84 }
+            { x = -112, y = 28 }
           },
           properties = {}
         }
