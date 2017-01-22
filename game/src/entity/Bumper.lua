@@ -8,7 +8,7 @@ local Bumper = Class("Bumper", Entity);
 Bumper.init = function(self, scene, options)
 	Bumper.super.init(self, scene);
 
-	local physicsRadius = 50;
+	local physicsRadius = 60;
 
 	local x, y;
 	local xs, ys = 0, 0;

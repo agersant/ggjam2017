@@ -32,7 +32,7 @@ Fish.init = function(self, scene, options)
 	self._currentLevel = 0;
 	self._player = options.player;
 	self._bodyRadius = 10;
-	self._fishBounce = 150;
+	self._fishBounce = 250;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._player.spawnLocation.x, self._player.spawnLocation.y);
