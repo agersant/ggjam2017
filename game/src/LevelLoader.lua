@@ -10,6 +10,7 @@ local function compareEnts(a,b)
 end
 
 LevelLoader.loadLevel = function(self, levelName)
+	print("Loading level " .. levelName);
     local levelData = require("assets/levels/"..levelName);
 	local tileSize = 28;
     local entities = {};

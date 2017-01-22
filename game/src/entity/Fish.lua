@@ -29,7 +29,7 @@ Fish.init = function(self, scene, options)
 	self._force = 225;
 	self._angularForce = 245;
 	self._foresight = 3;
-	self._currentLevel = 0;
+	self._levelsLoaded = 0;
 	self._player = options.player;
 	self._bodyRadius = 10;
 	self._fishBounce = 250;
@@ -74,13 +74,19 @@ Fish.spawnNextPickUp = function(self, pickupIndex)
 end
 
 Fish.loadNextLevel = function(self)
-	self._currentLevel = self._currentLevel + 1;
-	local levelName = "level" .. self._currentLevel .. "-" .. self._player.findex;
+	local levelToLoad;
+	if self._levelsLoaded < 3 then
+		levelToLoad = self._levelsLoaded + 1;
+	else
+		levelToLoad = math.random(1, gNumLevels);
+	end
+	local levelName = "level" .. levelToLoad .. "-" .. self._player.findex;
 	local levelData = LevelLoader:loadLevel(levelName);
 	for i, pickup in ipairs(levelData.pickups) do
 		table.insert(self._upcomingPickUps, pickup);
 	end
 	table.insert(self._levelLengths, #levelData.pickups);
+	self._levelsLoaded = self._levelsLoaded + 1;
 end
 
 Fish.update = function(self, dt)
