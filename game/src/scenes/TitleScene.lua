@@ -30,6 +30,14 @@ TitleScene.script = function(self, script)
 			script:tween(1, 0, .4, nil, function(v) self._promptAlpha = v end);
 		end
 	end);
+
+	script:thread(function()
+		while true do
+			script:tween(70, 80, 1.5, nil, function(v) self._titleY = v end);
+			script:tween(80, 70, 1.5, nil, function(v) self._titleY = v end);
+		end
+	end);
+	
 	script:wait(.1);
 	script:waitForInput("space");
 	Scene:setCurrent(HowToPlayScene:new());
@@ -48,7 +56,7 @@ TitleScene.draw = function(self)
 	AmbientBubbles:draw();
 
 	--Title
-	love.graphics.draw( self._titleText, x / 2, y, 0.02 * self._promptAlpha);
+	love.graphics.draw( self._titleText, x / 2, self._titleY );
 
 	--Start Text
 	love.graphics.setFont(self._pressStartFont);
