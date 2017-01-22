@@ -12,7 +12,7 @@ local BumperSpawner = require("src/entity/BumperSpawner");
 local Fish = require("src/entity/Fish");
 local PickUp = require("src/entity/PickUp");
 local LevelLoader = require("src/LevelLoader");
-local CreditsScene = require("src/scenes/CreditsScene");
+local LeaderboardScene = require("src/scenes/LeaderboardScene");
 local HUD = require("src/HUD");
 
 
@@ -194,7 +194,8 @@ GameScene.doGameOver = function(self)
 	self._scriptRunner:addScript(Script:new(self, function(script)
 		script:wait(2);
 		script:waitForInput("space");
-		Scene:setCurrent(CreditsScene:new());
+		local score = self:getScore();
+		Scene:setCurrent(LeaderboardScene:new(score));
 	end));
 end
 
@@ -203,7 +204,7 @@ GameScene.getTimeLeft = function(self)
 end
 
 GameScene.getScore = function(self)
-	return self._score;
+	return math.floor( 100 * self._score );
 end
 
 GameScene.giveExtraTime = function(self, seconds)

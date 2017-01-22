@@ -16,6 +16,9 @@ end
 Scene.draw = function(self)
 end
 
+Scene.handleKeyPress = function(self, key)
+end
+
 Scene.canProcessSignals = function(self)
 	return self._canProcessSignals;
 end

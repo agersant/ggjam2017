@@ -3,6 +3,7 @@ local Script = require("src/utils/Script");
 local Scene = require("src/utils/Scene");
 local GameScene = require("src/GameScene");
 local TitleScene = require("src/scenes/TitleScene");
+local Leaderboard = require("src/Leaderboard");
 
 gDrawPhysics = false;
 gNumLevels = 10;
@@ -17,6 +18,7 @@ gAssets = {
 
 
 love.load = function()
+	Leaderboard:init();
 	gAssets.CHAR.sparky = {
 		idle = {
 			frames = {
@@ -80,9 +82,11 @@ love.draw = function()
 end
 
 love.keypressed = function(key)
-	if key == "p" then
+	if key == "p" and not love.filesystem.isFused() then
 		gDrawPhysics = not gDrawPhysics;
 	elseif key == "escape" then
 		Scene:setCurrent(TitleScene:new());
 	end
+
+	Scene:getCurrent():handleKeyPress(key);
 end

@@ -15,24 +15,24 @@ TitleScene.init = function(self)
 	self._script = Script:new(self, function(script)
 		self:script(script);
 	end);
-
 	self:playMusic( gAssets.MUSIC.waves );
 end
 
 TitleScene.update = function(self, dt)
-	if love.keyboard.isDown("space") then
-		Scene:setCurrent(HowToPlayScene:new());
-		return;
-	end
 	self._script:update(dt);
 	AmbientBubbles:moveBubbles(dt);
 end
 
 TitleScene.script = function(self, script)
-	while true do
-		script:tween(0, 1, .4, nil, function(v) self._promptAlpha = v end);
-		script:tween(1, 0, .4, nil, function(v) self._promptAlpha = v end);
-	end
+	script:thread(function()
+		while true do
+			script:tween(0, 1, .4, nil, function(v) self._promptAlpha = v end);
+			script:tween(1, 0, .4, nil, function(v) self._promptAlpha = v end);
+		end
+	end);
+	script:wait(.1);
+	script:waitForInput("space");
+	Scene:setCurrent(HowToPlayScene:new());
 end
 
 TitleScene.draw = function(self)

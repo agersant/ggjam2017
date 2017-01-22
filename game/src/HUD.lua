@@ -27,7 +27,7 @@ HUD.render = function(self)
 	love.graphics.setFont(self._timerFont);
 	love.graphics.printf(timeLeft, 0, 40, 640, "center");
 
-	local score = math.floor(100 * self._scene:getScore());
+	local score = self._scene:getScore();
 	love.graphics.setColor(255, 255, 255, 255);
 	love.graphics.setFont(self._scoreFont);
 	love.graphics.printf("Score: " .. score, 40, 40, 640, "left");
