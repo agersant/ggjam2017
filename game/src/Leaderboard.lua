@@ -11,16 +11,16 @@ local maxEntries = 10;
 Leaderboard.init = function(self)
 
 	self._entries = {
-		{ name = "Unagi", score = 300*100 },
-		{ name = "Aji", score = 280*100 },
-		{ name = "Ebi", score = 260*100 },
-		{ name = "Tamago", score = 240*100 },
-		{ name = "Maguro", score = 220*100 },
-		{ name = "Saba", score = 200*100 },
-		{ name = "Ikura", score = 180*100 },
-		{ name = "Hamachi", score = 160*100 },
-		{ name = "Sake", score = 140*100 },
-		{ name = "Tako", score = 120*100 },
+		{ name = "Pongo", score = 300*100 },
+		{ name = "Klaus", score = 280*100 },
+		{ name = "My Dog", score = 260*100 },
+		{ name = "Aery", score = 240*100 },
+		{ name = "Skirt", score = 220*100 },
+		{ name = "My Cat", score = 200*100 },
+		{ name = "Spooky", score = 180*100 },
+		{ name = "Pish", score = 160*100 },
+		{ name = "Raven", score = 140*100 },
+		{ name = "Cotton Candy", score = 120*100 },
 	};
 
 	readFromDisk(self);
