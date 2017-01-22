@@ -25,13 +25,10 @@ BumperSpawner.spawnLogic = function(self, script)
 		end
 		local scorecheck = self._scene:getScore();
 		if scorecheck > 8000 then
-			math.randomseed( os.time() );
 			timer = math.random(1, 4);
 		elseif scorecheck > 5000 then
-			math.randomseed( os.time() );
 			timer = math.random(3, 6);
 		elseif scorecheck > 3000 then
-			math.randomseed( os.time() );
 			timer = math.random(6, 8);
 		else
 			timer = 8;

@@ -18,6 +18,7 @@ gAssets = {
 
 
 love.load = function()
+	math.randomseed(os.time());
 	Leaderboard:init();
 	gAssets.CHAR.sparky = {
 		idle = {

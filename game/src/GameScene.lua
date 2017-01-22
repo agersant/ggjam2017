@@ -29,7 +29,6 @@ local removeDespawnedEntitiesFrom = function(self, list)
 end
 
 local getRandomTheme = function()
-	math.randomseed( os.time() );
 	local songRandom = math.random( 1, 10 );
 	if songRandom == 1 then
 		return gAssets.MUSIC.hidden;
