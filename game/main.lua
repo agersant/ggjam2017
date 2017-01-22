@@ -54,6 +54,11 @@ love.load = function()
 				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_011.png" ),
 			},
 		},
+		puff = {
+			frames = {
+				love.graphics.newImage( "assets/sprites/fishB/puff/puff.png" ),
+			},
+		},
 	};
 	gAssets.CHAR.other = {
 		idle = {
@@ -86,6 +91,11 @@ love.load = function()
 				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_009.png" ),
 				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_010.png" ),
 				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_011.png" ),
+			},
+		},
+		puff = {
+			frames = {
+				love.graphics.newImage( "assets/sprites/fishA/puff/puff.png" ),
 			},
 		},
 	};

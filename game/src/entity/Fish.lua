@@ -36,6 +36,11 @@ Fish.init = function(self, scene, options)
 	self._fishBounce = 250;
 	self._isNearTop = true;
 
+	self:addScriptRunner();
+	self:addScript(Script:new(self, function(script)
+		self:script(script);
+	end));
+
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._player.spawnLocation.x, self._player.spawnLocation.y);
 	self._body:setLinearDamping(2.2);
@@ -57,6 +62,20 @@ Fish.init = function(self, scene, options)
 	for i = 1, self._foresight do
 		self:spawnNextPickUp(i);
 	end
+end
+
+Fish.script = function(self, script)
+	script:thread(function(script)
+		while true do
+			script:waitFor("puff");
+			script:thread(function(script)
+				script:endOn("puff");
+				self._puffed = true;
+				script:wait(1);
+				self._puffed = false;
+			end);
+		end
+	end);
 end
 
 Fish.getNextPickUp = function(self)
@@ -106,23 +125,27 @@ Fish.update = function(self, dt)
 	local pressingLeft = love.keyboard.isDown(self._player.left);
 	local pressingRight = love.keyboard.isDown(self._player.right);
 	local pressingForward = love.keyboard.isDown(self._player.up);
-
-	local xs = 0;
-	if pressingLeft then
-		xs = -1; 
-	end
-	if pressingRight then
-		xs = 1;
-	end
-	self._body:applyAngularImpulse(xs * dt * self._angularForce);
-
-	local angle = self._body:getAngle();
-	if pressingForward then
-		self._body:applyLinearImpulse(self._force * math.cos(angle) * dt, self._force * math.sin(angle) * dt);
-	end
-
 	local pressingAnything = pressingLeft or pressingRight or pressingForward;
-	if pressingAnything then
+
+	if not self._puffed then
+		local xs = 0;
+		if pressingLeft then
+			xs = -1; 
+		end
+		if pressingRight then
+			xs = 1;
+		end
+		self._body:applyAngularImpulse(xs * dt * self._angularForce);
+
+		local angle = self._body:getAngle();
+		if pressingForward then
+			self._body:applyLinearImpulse(self._force * math.cos(angle) * dt, self._force * math.sin(angle) * dt);
+		end
+	end
+
+	if self._puffed then
+		self:playAnimation("puff");
+	elseif pressingAnything then
 		self:playAnimation("swim");
 	else
 		self:playAnimation("idle");
@@ -163,6 +186,7 @@ Fish.collideWith = function(self, object, contact)
 	if isFish or isBumper then
 		love.audio.stop( gAssets.SOUND.bonk );
 		love.audio.play( gAssets.SOUND.bonk );
+		self:signal("puff");
 	end
 
 	if isFish then
