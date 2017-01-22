@@ -69,6 +69,8 @@ love.load = function()
 	gAssets.MUSIC.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
 	gAssets.MUSIC.hurryUp = love.audio.newSource( "assets/music/HurryUp.mp3" );
 
+	gAssets.BG.game = love.graphics.newImage("assets/backgrounds/playspace_bg.png")
+
 	Scene:setCurrent(TitleScene:new());
 end
 

@@ -167,8 +167,8 @@ GameScene.draw = function(self)
 
 	love.graphics.translate(40, 120);
 
-	love.graphics.setColor(0, 150, 150, 255);
-	love.graphics.rectangle("fill", 0, 0, 560, 560 );
+	love.graphics.setColor(255, 255 , 255, 255);
+	love.graphics.draw( gAssets.BG.game );
 
 	for _, entity in ipairs( self._drawableEntities ) do
 		entity:render();
