@@ -99,6 +99,16 @@ love.load = function()
 
 	gAssets.SOUND.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
 	gAssets.SOUND.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
+	gAssets.SOUND.bub1 = love.audio.newSource( "assets/sfx/bub1.mp3" );
+	gAssets.SOUND.bub2 = love.audio.newSource( "assets/sfx/bub2.mp3" );
+	gAssets.SOUND.bub3 = love.audio.newSource( "assets/sfx/bub3.mp3" );
+	gAssets.SOUND.bub4 = love.audio.newSource( "assets/sfx/bub4.mp3" );
+	gAssets.SOUND.bub5 = love.audio.newSource( "assets/sfx/bub5.mp3" );
+	gAssets.SOUND.secretBub1 = love.audio.newSource( "assets/sfx/secretBub1.mp3" );
+	gAssets.SOUND.secretBub2 = love.audio.newSource( "assets/sfx/secretBub2.mp3" );
+	gAssets.SOUND.secretBub3 = love.audio.newSource( "assets/sfx/secretBub3.mp3" );
+	gAssets.SOUND.secretBub4 = love.audio.newSource( "assets/sfx/secretBub4.mp3" );
+	gAssets.SOUND.secretBub5 = love.audio.newSource( "assets/sfx/secretBub5.mp3" );
 
 	gAssets.BG.game = love.graphics.newImage("assets/backgrounds/playspace_bg.png")
 

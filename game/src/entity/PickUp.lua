@@ -72,9 +72,39 @@ PickUp.collideWith = function(self, object)
 	end
 end
 
+local getNewSound = function()
+	local randomSound = math.random( 1,56 );
+	if randomSound >= 1 and randomSound <= 10 then
+		return gAssets.SOUND.bub1;
+	elseif randomSound >= 11 and randomSound <= 20 then
+		return gAssets.SOUND.bub2;
+	elseif randomSound >= 11 and randomSound <= 30 then
+		return gAssets.SOUND.bub3;
+	elseif randomSound >= 11 and randomSound <= 40 then
+		return gAssets.SOUND.bub4;
+	elseif randomSound >= 11 and randomSound <= 50 then
+		return gAssets.SOUND.bub5;
+	elseif randomSound == 51 then
+		return gAssets.SOUND.secretBub1;
+	elseif randomSound == 52 then
+		return gAssets.SOUND.secretBub2;
+	elseif randomSound == 53 then
+		return gAssets.SOUND.secretBub3;
+	elseif randomSound == 54 then
+		return gAssets.SOUND.secretBub4;
+	elseif randomSound == 55 then
+		return gAssets.SOUND.secretBub5;
+	else
+		return gAssets.SOUND.pickup;
+	end
+end
+
 PickUp.pickup = function(self, wasFinal)
-	love.audio.stop( gAssets.SOUND.pickup );
-	love.audio.play( gAssets.SOUND.pickup );
+	if self._currentSound then
+		love.audio.stop( self._currentSound );
+	end
+	self._currentSound = getNewSound();
+	love.audio.play( self._currentSound );
 	local timeEarned = wasFinal and 5 or 1;
 	local scene = self:getScene();
 	scene:giveExtraTime(timeEarned);
