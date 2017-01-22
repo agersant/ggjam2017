@@ -1,14 +1,19 @@
 require("src/utils/OOP");
 local Scene = require("src/utils/Scene");
+local GameScene = Class("GameScene", Scene);
+package.loaded["src/GameScene"] = GameScene;
+
 local Entity = require("src/utils/Entity");
+local ScriptRunner = require("src/utils/ScriptRunner");
+local Script = require("src/utils/Script");
 local TableUtils = require("src/utils/TableUtils");
 local GameScript = require("src/GameScript");
 local BumperSpawner = require("src/entity/BumperSpawner");
 local Fish = require("src/entity/Fish");
 local PickUp = require("src/entity/PickUp");
 local LevelLoader = require("src/LevelLoader");
+local CreditsScene = require("src/scenes/CreditsScene");
 local HUD = require("src/HUD");
-local GameScene = Class("GameScene", Scene);
 
 
 
@@ -44,6 +49,8 @@ GameScene.init = function(self)
 	self._timeLeft = 60;
 	self._score = 0;
 	self._hud = HUD:new(self);
+
+	self._scriptRunner = ScriptRunner:new(self);
 
 	self:update(0);
 
@@ -91,13 +98,18 @@ GameScene.update = function(self, dt)
 	GameScene.super.update(self, dt);
 	
 	self._timeLeft = self._timeLeft - dt;
-	self._gameOver = self._gameOver or self._timeLeft < 0;
 	if not self._gameOver then
 		self._score = self._score + dt;
+		self._gameOver = self._timeLeft < 0;
+		if self._gameOver then
+			self:doGameOver();
+		end
 	end
+
 	self._world:update(dt);
 
 	self._canProcessSignals = true;
+	self._scriptRunner:update(dt);
 	
 	-- Update entities
 	for _, entity in ipairs(self._updatableEntities) do
@@ -172,6 +184,14 @@ end
 
 GameScene.getPhysicsWorld = function(self)
 	return self._world;
+end
+
+GameScene.doGameOver = function(self)
+	self._scriptRunner:addScript(Script:new(self, function(script)
+		script:wait(2);
+		script:waitForInput("space");
+		Scene:setCurrent(CreditsScene:new());
+	end));
 end
 
 GameScene.spawnPickup = function(self, levelName, fish, index)
