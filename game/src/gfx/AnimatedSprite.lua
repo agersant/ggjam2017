@@ -7,9 +7,15 @@ AnimatedSprite.init = function(self, source)
 end
 
 AnimatedSprite.playAnimation = function(self, anim)
-	assert( self._source[anim] );
+	if not self._source[anim] then
+		print("Missing anim " .. anim);
+		return;
+	end
+	if self._currentAnim == self._source[anim] then
+		return;
+	end
 	self._currentAnim = self._source[anim];
-	local fps = self._currentAnim.fps or 5;
+	local fps = self._currentAnim.fps or 24;
 	self._duration = #self._currentAnim.frames / fps;
 	self._animTime = 0;
 end

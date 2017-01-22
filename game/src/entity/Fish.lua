@@ -102,18 +102,29 @@ Fish.update = function(self, dt)
 		return;
 	end
 
+	local pressingLeft = love.keyboard.isDown(self._player.left);
+	local pressingRight = love.keyboard.isDown(self._player.right);
+	local pressingForward = love.keyboard.isDown(self._player.up);
+
 	local xs = 0;
-	if love.keyboard.isDown(self._player.left) then
+	if pressingLeft then
 		xs = -1; 
 	end
-	if love.keyboard.isDown(self._player.right) then
+	if pressingRight then
 		xs = 1;
 	end
 	self._body:applyAngularImpulse(xs * dt * self._angularForce);
 
 	local angle = self._body:getAngle();
-	if love.keyboard.isDown(self._player.up) then
+	if pressingForward then
 		self._body:applyLinearImpulse(self._force * math.cos(angle) * dt, self._force * math.sin(angle) * dt);
+	end
+
+	local pressingAnything = pressingLeft or pressingRight or pressingForward;
+	if pressingAnything then
+		self:playAnimation("swim");
+	else
+		self:playAnimation("idle");
 	end
 end
 

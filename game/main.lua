@@ -20,7 +20,34 @@ love.load = function()
 	gAssets.CHAR.sparky = {
 		idle = {
 			frames = {
-				love.graphics.newImage( "assets/sprites/sparky_base.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_000.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_001.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_002.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_003.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_004.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_005.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_006.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_007.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_008.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_009.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_010.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_011.png" ),
+			},
+		},
+		swim = {
+			frames = {
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_000.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_001.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_002.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_003.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_004.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_005.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_006.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_007.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_008.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_009.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_010.png" ),
+				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_011.png" ),
 			},
 		},
 	};
