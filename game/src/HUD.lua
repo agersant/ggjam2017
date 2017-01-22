@@ -5,7 +5,7 @@ local HUD = Class("HUD");
 HUD.init = function(self, scene)
 	assert(scene);
 	self._scene = scene;
-	self._timerFont = love.graphics.newFont("assets/fonts/timerFont.ttf", 50);
+	self._timerFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 50);
 	self._gameOverFont = self._timerFont;
 	self._scoreFont = love.graphics.newFont("assets/fonts/smallFont.ttf", 18);
 end
@@ -16,6 +16,9 @@ end
 HUD.render = function(self)
 	local timeLeft = self._scene:getTimeLeft();
 	local isOver = self._scene:isOver();
+
+	love.graphics.setColor(0, 0, 0, 180);
+	love.graphics.rectangle("fill", 0, 0, 640, 80);
 
 	if isOver then
 		timeLeft = 0;

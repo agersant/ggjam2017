@@ -12,6 +12,7 @@ LeaderboardScene.init = function(self, playerScore)
 	LeaderboardScene.super.init(self);
 	self._titleFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 60);
 	self._dataFont = love.graphics.newFont("assets/fonts/smallFont.ttf", 40);
+	self._promptFont = love.graphics.newFont("assets/fonts/smallFont.ttf", 25);
 	self._playerScore = playerScore;
 	self._nameInput = "";
 	self._playerRank = Leaderboard:getScorePosition(playerScore);
@@ -55,7 +56,7 @@ end
 LeaderboardScene.draw = function(self)
 	love.graphics.setFont(self._titleFont);
 	love.graphics.setColor(255, 255, 255, 255);
-	love.graphics.printf("Leaderboard", 40, 40, 640, "left");
+	love.graphics.printf("Leaderboard", 0, 40, 640, "center");
 
 	love.graphics.setFont(self._dataFont);
 	for i = 1, #self._data do
@@ -83,6 +84,8 @@ LeaderboardScene.draw = function(self)
 	end
 
 	if self._completedInput then
+		love.graphics.setFont(self._promptFont);
+		love.graphics.setColor(255, 255, 255, 255);
 		love.graphics.printf("Press Space To Continue", 0, 640, 640, "center");
 	end
 end
