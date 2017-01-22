@@ -28,13 +28,14 @@ Fish.init = function(self, scene, options)
 	self._currentLevelPickups = 0;
 	self._lastPickupEnt = 0;
 	self._totalPickups = 0;
-	self._angularSpeed = 4;
+	self._angularSpeed = 180;
 	self._player = options.player;
 	self._bodyRadius = 10;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._player.spawnLocation.x, self._player.spawnLocation.y);
 	self._body:setLinearDamping(2.2);
+	self._body:setAngularDamping(2.5);
 	self._body:setUserData(self);
 
 	self._shape = love.physics.newCircleShape(self._bodyRadius);
@@ -63,7 +64,7 @@ Fish.update = function(self, dt)
 	if love.keyboard.isDown(self._player.right) then
 		xs = 1;
 	end
-	self._body:setAngularVelocity(xs * self._angularSpeed);
+	self._body:applyAngularImpulse(xs * dt * self._angularSpeed);
 
 	local angle = self._body:getAngle();
 	if love.keyboard.isDown(self._player.up) then
