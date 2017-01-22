@@ -32,6 +32,7 @@ Fish.init = function(self, scene, options)
 	self._totalPickups = 0;
 	self._player = options.player;
 	self._bodyRadius = 10;
+	self._fishBounce = 150;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._player.spawnLocation.x, self._player.spawnLocation.y);
@@ -97,8 +98,7 @@ Fish.collideWith = function(self, object, contact)
 			nx = -nx;
 			ny = -ny;
 		end
-		local bounce = 500;
-		self._body:applyLinearImpulse(nx * bounce, ny * bounce);
+		self._body:applyLinearImpulse(nx * self._fishBounce, ny * self._fishBounce);
 	end
 end
 
