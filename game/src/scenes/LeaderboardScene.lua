@@ -84,7 +84,8 @@ LeaderboardScene.draw = function(self)
 	end
 
 	if self._completedInput then
-	love.graphics.setFont(self._promptFont);
+		love.graphics.setFont(self._promptFont);
+		love.graphics.setColor(255, 255, 255, 255);
 		love.graphics.printf("Press Space To Continue", 0, 640, 640, "center");
 	end
 end
