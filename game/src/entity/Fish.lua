@@ -9,6 +9,7 @@ local LevelLoader = require("src/LevelLoader");
 local AnimatedSprite = require("src/gfx/AnimatedSprite");
 local PickUp = require("src/entity/PickUp");
 local Bumper = require("src/entity/Bumper");
+local AmbientBubbles = require("src/AmbientBubbles");
 
 Fish.sparky = {
 	findex = 1,
@@ -37,6 +38,7 @@ Fish.init = function(self, scene, options)
 	self._bodyRadius = 20;
 	self._fishBounce = 250;
 	self._isNearTop = true;
+	self:setupSwimParticles();
 
 	self:addScriptRunner();
 	self:addScript(Script:new(self, function(script)
@@ -66,6 +68,15 @@ Fish.init = function(self, scene, options)
 	for i = 1, self._foresight do
 		self:spawnNextPickUp(i);
 	end
+end
+
+Fish.setupSwimParticles = function(self)
+	self._swimParticles = love.graphics.newParticleSystem( AmbientBubbles._bubbleImgs[3], 32 );
+	self._swimParticles:setParticleLifetime(2, 5) -- Particles live at least 2s and at most 5s.
+	self._swimParticles:setEmissionRate(5)
+	self._swimParticles:setSizeVariation(1)
+	self._swimParticles:setLinearAcceleration(-20, -20, 20, 20) -- Random movement in all directions.
+	self._swimParticles:setColors(255, 255, 255, 255, 255, 255, 255, 0) -- Fade to transparency.
 end
 
 Fish.script = function(self, script)
@@ -122,6 +133,7 @@ Fish.update = function(self, dt)
 
 	Fish.super.update(self, dt);
 	self._waterSprite:update(dt);
+	self._swimParticles:update(dt)
 
 	local pressingLeft = love.keyboard.isDown(self._player.left);
 	local pressingRight = love.keyboard.isDown(self._player.right);
@@ -161,10 +173,14 @@ Fish.render = function(self)
 	local x, y = self._body:getPosition();
 	local angle = self._body:getAngle();
 
+	love.graphics.setColor(255, 255, 255, 255);
+	love.graphics.draw(self._swimParticles, x, y);
+	-- love.graphics.draw(self._swimParticles, love.graphics.getWidth() * 0.5, love.graphics.getHeight() * 0.5);
+
 	love.graphics.push();
 
 	love.graphics.translate(x, y);
-	love.graphics.setColor(255, 255, 255, 255);
+
 
 	love.graphics.push()
 	love.graphics.rotate(angle);
