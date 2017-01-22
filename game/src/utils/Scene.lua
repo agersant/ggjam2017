@@ -42,7 +42,7 @@ Scene.setCurrent = function(self, scene)
 	currentScene = scene;
 end
 
-Scene.playMusic = function( self, musicName )
+Scene.playMusic = function( self, musicName, volume )
 	if not musicName then
 		return;
 	end
@@ -54,7 +54,7 @@ Scene.playMusic = function( self, musicName )
 	gCurrentMusic:setLooping( true );
 
 	love.audio.play( gCurrentMusic );
-	love.audio.setVolume( 0.5 );
+	gCurrentMusic:setVolume( volume and volume or 0.5 );
 end
 
 

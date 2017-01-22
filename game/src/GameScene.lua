@@ -63,14 +63,16 @@ GameScene.init = function(self)
 	self._scriptRunner:addScript(Script:new(self, function(script)
 		script:thread( function()
 			script:waitFor( "hurryUp" );
-			script:tween(.5, 0, 2, nil, function(v) love.audio.setVolume( v ); end);
-			self:playMusic( gAssets.MUSIC.hurryUp );
+			script:tween(.5, 0, 2, nil, function(v) self._currentTrack:setVolume( v ); end);
+			self._currentTrack = gAssets.MUSIC.hurryUp;
+			self:playMusic( gAssets.MUSIC.hurryUp, 0.3 );
 		end );
 
 		script:thread( function()
 			script:waitFor( "backToNormal" );
-			script:tween(.5, 0, 2, nil, function(v) love.audio.setVolume( v ); end);
-			self:playMusic( getRandomTheme() ); 
+			script:tween(.5, 0, 2, nil, function(v) self._currentTrack:setVolume( v ); end);
+			self._currentTrack = getRandomTheme();
+			self:playMusic( self._currentTrack ); 
 		end );
 	end));
 
@@ -80,7 +82,8 @@ GameScene.init = function(self)
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
 	
-	self:playMusic( getRandomTheme() );
+	self._currentTrack = getRandomTheme();
+	self:playMusic( self._currentTrack ); 
 	self._songState = 0;
 end
 

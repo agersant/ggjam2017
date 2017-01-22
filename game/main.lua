@@ -99,7 +99,9 @@ love.load = function()
 	gAssets.MUSIC.hurryUp = love.audio.newSource( "assets/music/HurryUp.mp3" );
 
 	gAssets.SOUND.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
+	gAssets.SOUND.pickup:setVolume( 0.3 );
 	gAssets.SOUND.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
+	gAssets.SOUND.bonk:setVolume( 0.4 );
 	gAssets.SOUND.bub1 = love.audio.newSource( "assets/sfx/bub1.mp3" );
 	gAssets.SOUND.bub2 = love.audio.newSource( "assets/sfx/bub2.mp3" );
 	gAssets.SOUND.bub3 = love.audio.newSource( "assets/sfx/bub3.mp3" );
