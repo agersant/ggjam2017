@@ -41,7 +41,7 @@ GameScene.init = function(self)
 	);
 	self:spawnEdges();
 
-	self._timeLeft = 10;
+	self._timeLeft = 60;
 	self._hud = HUD:new(self);
 
 	self:update(0);
