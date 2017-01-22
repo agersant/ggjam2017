@@ -177,13 +177,12 @@ end
 
 GameScene.draw = function(self)
 	GameScene.super.draw(self);
-	
-	love.graphics.push();
-
-	love.graphics.translate(40, 120);
 
 	love.graphics.setColor(255, 255 , 255, 255);
 	love.graphics.draw( gAssets.BG.game );
+
+	love.graphics.push();
+	love.graphics.translate(40, 120);
 
 	for _, entity in ipairs( self._drawableEntities ) do
 		entity:render();
@@ -200,7 +199,7 @@ GameScene.isOver = function(self)
 end
 
 GameScene.spawn = function(self, class, options)
-	assert(type(options) == "table");
+	assert(type(options) == "table");  
 	local entity = class:new(self, options);
 	self._spawnedEntities[entity] = true;
 	return entity;
