@@ -28,11 +28,11 @@ Fish.other = {
 Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 225;
-	self._angularForce = 1700;
+	self._angularForce = 3300;
 	self._foresight = 3;
 	self._levelsLoaded = 0; 
 	self._player = options.player;
-	self._bodyRadius = 17;
+	self._bodyRadius = 20;
 	self._fishBounce = 250;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
