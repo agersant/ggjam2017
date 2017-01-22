@@ -37,6 +37,9 @@ love.load = function()
 
 	gAssets.MUSIC.theme = love.audio.newSource( "assets/music/Theme.mp3" );
 	gAssets.MUSIC.hidden = love.audio.newSource( "assets/music/HiddenTheme.mp3" );
+	gAssets.MUSIC.waves = love.audio.newSource( "assets/music/waves.ogg" );
+	gAssets.MUSIC.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
+	gAssets.MUSIC.bonk = love.audio.newSource( "assets/sfx/bonk.ogg" );
 
 	local scene = TitleScene:new();
 	Scene:setCurrent(scene);

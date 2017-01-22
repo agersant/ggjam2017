@@ -57,6 +57,14 @@ GameScene.init = function(self)
 	self._fishSparky = self:spawn(Fish, { player = Fish.sparky });
 	self._fishOther = self:spawn(Fish, { player = Fish.other});
 	self._bumperSpawner = self:spawn(BumperSpawner, {});
+	
+	math.randomseed( os.time() );
+	local songRandom = math.random( 1, 10 );
+	if songRandom == 1 then
+		self:playMusic( gAssets.MUSIC.hidden );
+	else
+		self:playMusic( gAssets.MUSIC.theme );
+	end
 end
 
 GameScene.handleCollision = function(self, fixtureA, fixtureB, contact)

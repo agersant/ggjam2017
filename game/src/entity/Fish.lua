@@ -8,6 +8,7 @@ local Script = require("src/utils/Script");
 local LevelLoader = require("src/LevelLoader");
 local AnimatedSprite = require("src/gfx/AnimatedSprite");
 local PickUp = require("src/entity/PickUp");
+local Bumper = require("src/entity/Bumper");
 
 Fish.sparky = {
 	findex = 1,
@@ -133,7 +134,15 @@ Fish.render = function(self)
 end
 
 Fish.collideWith = function(self, object, contact)
-	if object:isInstanceOf(Fish) then
+	local isFish = object:isInstanceOf(Fish);
+	local isBumper = object:isInstanceOf(Bumper);
+
+	if isFish or isBumper then
+		love.audio.stop( gAssets.MUSIC.bonk );
+		love.audio.play( gAssets.MUSIC.bonk );
+	end
+
+	if isFish then
 		local nx, ny = contact:getNormal();
 		local fixtureA, fixtureB = contact:getFixtures();
 		if fixtureB == self._fixture then

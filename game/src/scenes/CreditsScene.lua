@@ -14,11 +14,11 @@ CreditsScene.init = function(self)
 Made by the Goobs for
 Global Game Jam 2017
 
-Cody Malach: Design, Code, Audio
+Cody Malach: Design, Code, Music
 Devin Curry: Code, Art
 Amanda Newman: Art, Art, Art
 David Ludwig: Design
-Antoine Gersant: Code, Design
+Antoine Gersant: Code, Design, Audio
 
 So long and thank you for the fish!
 	]];

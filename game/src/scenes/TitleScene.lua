@@ -13,13 +13,7 @@ TitleScene.init = function(self)
 		self:script(script);
 	end);
 
-	math.randomseed( os.time() );
-	local songRandom = math.random( 1, 10 );
-	if songRandom == 1 then
-		self:playMusic( gAssets.MUSIC.hidden );
-	else
-		self:playMusic( gAssets.MUSIC.theme );
-	end
+	self:playMusic( gAssets.MUSIC.waves );
 end
 
 TitleScene.update = function(self, dt)
