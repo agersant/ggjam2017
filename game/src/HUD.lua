@@ -7,6 +7,7 @@ HUD.init = function(self, scene)
 	self._scene = scene;
 	self._timerFont = love.graphics.newFont("assets/fonts/timerFont.ttf", 50);
 	self._gameOverFont = self._timerFont;
+	self._scoreFont = love.graphics.newFont("assets/fonts/smallFont.ttf", 18);
 end
 
 HUD.update = function(self, dt)
@@ -26,14 +27,15 @@ HUD.render = function(self)
 	love.graphics.setFont(self._timerFont);
 	love.graphics.printf(timeLeft, 0, 40, 640, "center");
 
+	local score = math.floor(100 * self._scene:getScore());
+	love.graphics.setColor(255, 255, 255, 255);
+	love.graphics.setFont(self._scoreFont);
+	love.graphics.printf("Score: " .. score, 40, 40, 640, "left");
+
 	if self._scene:isOver() then
 		love.graphics.setFont(self._gameOverFont);
 		love.graphics.printf("GAME OVER", 0, 400, 640, "center");
-
-		local score = math.floor(self._scene:getScore());
-		assert(score);
-
-		love.graphics.printf("Score: " .. (score * 100), 0, 450, 640, "center");
+		love.graphics.printf("Score: " .. score, 0, 450, 640, "center");
 	end
 end
 
