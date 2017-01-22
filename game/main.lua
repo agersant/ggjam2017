@@ -23,6 +23,40 @@ love.load = function()
 	gAssets.CHAR.sparky = {
 		idle = {
 			frames = {
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_000.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_001.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_002.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_003.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_004.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_005.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_006.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_007.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_008.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_009.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_010.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_011.png" ),
+			},
+		},
+		swim = {
+			frames = {
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_000.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_001.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_002.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_003.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_004.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_005.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_006.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_007.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_008.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_009.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_010.png" ),
+				love.graphics.newImage( "assets/sprites/fishB/swimming/sparky_sparky_swimming_011.png" ),
+			},
+		},
+	};
+	gAssets.CHAR.other = {
+		idle = {
+			frames = {
 				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_000.png" ),
 				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_001.png" ),
 				love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_002.png" ),
@@ -51,13 +85,6 @@ love.load = function()
 				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_009.png" ),
 				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_010.png" ),
 				love.graphics.newImage( "assets/sprites/fishA/swimming/other_fish_otherfish_swimming_011.png" ),
-			},
-		},
-	};
-	gAssets.CHAR.other = {
-		idle = {
-			frames = {
-				love.graphics.newImage( "assets/sprites/otherfish_base.png" ),
 			},
 		},
 	};
