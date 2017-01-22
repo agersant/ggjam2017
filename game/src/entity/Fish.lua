@@ -34,6 +34,7 @@ Fish.init = function(self, scene, options)
 	self._player = options.player;
 	self._bodyRadius = 20;
 	self._fishBounce = 250;
+	self._isNearTop = true;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
 	self._body:setPosition(self._player.spawnLocation.x, self._player.spawnLocation.y);
@@ -126,6 +127,12 @@ Fish.update = function(self, dt)
 	else
 		self:playAnimation("idle");
 	end
+
+	if self._body:getY() <= 35 then
+		self._isNearTop = true;
+	else
+		self._isNearTop = false;
+	end
 end
 
 Fish.render = function(self)
@@ -138,6 +145,11 @@ Fish.render = function(self)
 	love.graphics.setColor(255, 255, 255, 255);
 	self._sprite:render(0, -5);
 	love.graphics.pop();
+
+	if self._isNearTop then
+		-- TODO: Play the animation (4 frames)
+		love.graphics.draw(gAssets.ITEMS.waterSurface[1], self._body:getX() - 60, -5);
+	end
 
 	if gDrawPhysics then
 		Debug.drawCircleShape(self._body, self._shape);
