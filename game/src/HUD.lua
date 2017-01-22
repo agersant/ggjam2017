@@ -29,6 +29,11 @@ HUD.render = function(self)
 	if self._scene:isOver() then
 		love.graphics.setFont(self._gameOverFont);
 		love.graphics.printf("GAME OVER", 0, 400, 640, "center");
+
+		local score = math.floor(self._scene:getScore());
+		assert(score);
+
+		love.graphics.printf("Score: " .. (score * 100), 0, 450, 640, "center");
 	end
 end
 

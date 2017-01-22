@@ -42,6 +42,7 @@ GameScene.init = function(self)
 	self:spawnEdges();
 
 	self._timeLeft = 60;
+	self._score = 0;
 	self._hud = HUD:new(self);
 
 	self:update(0);
@@ -91,6 +92,9 @@ GameScene.update = function(self, dt)
 	
 	self._timeLeft = self._timeLeft - dt;
 	self._gameOver = self._gameOver or self._timeLeft < 0;
+	if not self._gameOver then
+		self._score = self._score + dt;
+	end
 	self._world:update(dt);
 
 	self._canProcessSignals = true;
@@ -182,6 +186,10 @@ end
 
 GameScene.getTimeLeft = function(self)
 	return self._timeLeft;
+end
+
+GameScene.getScore = function(self)
+	return self._score;
 end
 
 GameScene.giveExtraTime = function(self, seconds)
