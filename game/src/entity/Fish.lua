@@ -27,6 +27,7 @@ Fish.init = function(self, scene, options)
 	self._currentLevel = 1;
 	self._currentLevelPickups = 0;
 	self._lastPickupEnt = 0;
+	self._lastEntSpawned = 0;
 	self._totalPickups = 0;
 	self._angularSpeed = 180;
 	self._player = options.player;
@@ -102,17 +103,21 @@ Fish.collideWith = function(self, object, contact)
 end
 
 Fish.pickedUpItem = function(self, pickup)
-	-- TODO: Check the pickups in order, not just count
 	self._lastPickupEnt = pickup._ent;
-	print(self._lastPickupEnt, self._currentLevelPickups);
+	--FIXME: currentLevelPickups increases when it shouldn't
+	--Potential fix: when new level is loaded set last pickup to 0 and don't update it until we hit 1 again
 	if(self._lastPickupEnt + self._foresight > self._currentLevelPickups) then
-		self._currentLevel = self._currentLevel + 1;
 		if (self._lastPickupEnt >= self._currentLevelPickups) then
 			self._lastPickupEnt = 0;
 		end
+		self._currentLevel = self._currentLevel + 1;
 	end
 	local level = "level"..self._currentLevel.."-"..self._player.findex;
-	self:getScene():spawnPickup(level, self, self._lastPickupEnt + self._foresight);
+	if(self._lastEntSpawned >= self._currentLevelPickups) then
+		self._lastEntSpawned = 0;
+	end
+	self:getScene():spawnPickup(level, self, self._lastEntSpawned + 1);
+	print("_lastPickupEnt: "..self._lastPickupEnt, "_lastEntSpawned: "..self._lastEntSpawned, "_currentLevelPickups: "..self._currentLevelPickups, "_currentLevel: "..self._currentLevel);
 end
 
 Fish.getBubbleSprite = function(self)

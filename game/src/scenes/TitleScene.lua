@@ -12,6 +12,14 @@ TitleScene.init = function(self)
 	self._script = Script:new(self, function(script)
 		self:script(script);
 	end);
+
+	math.randomseed( os.time() );
+	local songRandom = math.random( 1, 10 );
+	if songRandom == 1 then
+		self:playMusic( gAssets.MUSIC.hidden );
+	else
+		self:playMusic( gAssets.MUSIC.theme );
+	end
 end
 
 TitleScene.update = function(self, dt)

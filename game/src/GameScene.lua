@@ -182,6 +182,7 @@ GameScene.spawnPickup = function(self, levelName, fish, index)
 	};
 	local pickup = self:spawn(PickUp, pickupOptions);
 	fish._currentLevelPickups = level.numPickups;
+	fish._lastEntSpawned = pickup._ent;
 end
 
 GameScene.getTimeLeft = function(self)
