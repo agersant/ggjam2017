@@ -25,7 +25,6 @@ LevelLoader.loadLevel = function(self, levelName)
 
     local objects = levelData.layers[1].objects;
     for i in pairs(objects) do
-        print(levelName, entities);
         table.insert(entities.pickups, {
                 ent = tonumber(objects[i].properties['ent']) + 1,
                 chunk = objects[i].properties['chunk'],
