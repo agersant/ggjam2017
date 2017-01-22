@@ -27,11 +27,11 @@ Fish.other = {
 Fish.init = function(self, scene, options)
 	Fish.super.init(self, scene);
 	self._force = 225;
-	self._angularForce = 245;
+	self._angularForce = 1700;
 	self._foresight = 3;
-	self._levelsLoaded = 0;
+	self._levelsLoaded = 0; 
 	self._player = options.player;
-	self._bodyRadius = 10;
+	self._bodyRadius = 17;
 	self._fishBounce = 250;
 
 	self._body = love.physics.newBody(self._scene:getPhysicsWorld(), 0, 0, "dynamic");
@@ -44,6 +44,7 @@ Fish.init = function(self, scene, options)
 	self._fixture = love.physics.newFixture(self._body, self._shape);
 	self._fixture:setCategory(Entity.PHYSICS_TAG.FISH);
 	self._fixture:setRestitution(.9);
+	self._body:setMass( 0.4 );
 
 	local spriteData = self._player.findex == Fish.sparky.findex and gAssets.CHAR.sparky or gAssets.CHAR.other;
 	self:addSprite(AnimatedSprite:new(spriteData));
@@ -120,7 +121,7 @@ Fish.render = function(self)
 	love.graphics.rotate(angle);
 
 	love.graphics.setColor(255, 255, 255, 255);
-	self._sprite:render(0, -8);
+	self._sprite:render(0, -5);
 	love.graphics.pop();
 
 	if gDrawPhysics then
