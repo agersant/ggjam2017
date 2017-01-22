@@ -6,6 +6,7 @@ local TitleScene = require("src/scenes/TitleScene");
 
 gDrawPhysics = false;
 
+gCurrentMusic = nil;
 gAssets = {
 	BG = {},
 	CHAR = {},
@@ -32,6 +33,9 @@ love.load = function()
 	
 	gAssets.CHAR.bubbleA = love.graphics.newImage( "assets/sprites/bubbleA.png" );
 	gAssets.CHAR.bubbleB = love.graphics.newImage( "assets/sprites/bubbleB.png" );
+
+	gAssets.MUSIC.theme = love.audio.newSource( "assets/music/Theme.mp3" );
+	gAssets.MUSIC.hidden = love.audio.newSource( "assets/music/HiddenTheme.mp3" );
 
 	local scene = TitleScene:new();
 	Scene:setCurrent(scene);
