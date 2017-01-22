@@ -5,7 +5,7 @@ local HUD = Class("HUD");
 HUD.init = function(self, scene)
 	assert(scene);
 	self._scene = scene;
-	self._timerFont = love.graphics.newFont("assets/fonts/timerFont.ttf", 50);
+	self._timerFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 50);
 	self._gameOverFont = self._timerFont;
 	self._scoreFont = love.graphics.newFont("assets/fonts/smallFont.ttf", 18);
 end
