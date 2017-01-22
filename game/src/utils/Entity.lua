@@ -4,6 +4,12 @@ local ScriptRunner = require("src/utils/ScriptRunner");
 local Entity = Class("Entity");
 
 
+Entity.PHYSICS_TAG = {
+	GEO = 1,
+	BUMPER = 2,
+	FISH = 3,
+};
+
 
 Entity.init = function(self, scene)
 	assert(scene);
@@ -11,11 +17,14 @@ Entity.init = function(self, scene)
 end
 
 Entity.isUpdatable = function( self )
-	return self._scriptRunner;
+	return self.update or self._scriptRunner;
 end
 
 Entity.isDrawable = function( self )
-	return false;
+	return self.render ~= nil or self._sprite;
+end
+
+Entity.addedToScene = function(self)
 end
 
 
@@ -43,11 +52,34 @@ Entity.signal = function(self, signal, ...)
 end
 
 
+-- PHYSICS
+
+Entity.destroy = function(self)
+	if self._body then
+		self._body:destroy();
+	end
+end
+
+
+-- ANIMATION
+
+Entity.addSprite = function(self, sprite)
+	self._sprite = sprite;
+end
+
+Entity.playAnimation = function(self, anim)
+	assert(self._sprite);
+	self._sprite:playAnimation(anim);
+end
+
 -- CORE
 
 Entity.update = function(self, dt)
 	if self._scriptRunner then
 		self._scriptRunner:update(dt);
+	end
+	if self._sprite then
+		self._sprite:update(dt);
 	end
 end
 

@@ -239,6 +239,29 @@ Script.wait = function(self, seconds)
 	end
 end
 
+Script.getTime = function(self)
+	return self._time;
+end
+
+Script.timeSince = function(self, time)
+	return self._time - time;
+end
+
+Script.tween = function(self, from, to, over, easing, action)
+	assert(over ~= 0);
+	local startTime = self._time;
+	while true do
+		local t = ( self._time - startTime ) / over;
+		t = math.min(math.max(0, t), 1);
+		local v = from + t * (to - from);
+		action(v);
+		if t == 1 then
+			break;
+		end
+		self:waitFrame();
+	end
+end
+
 Script.thread = function(self, functionToThread)
 	assert(type(functionToThread) == "function");
 	return coroutine.yield("fork", self, functionToThread);

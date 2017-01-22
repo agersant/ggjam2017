@@ -4,7 +4,7 @@ io.stderr:setvbuf("no");
 love.conf = function(options)
 	options.console = false;
 	options.window.title = "Global Game Jam 2017";
-	options.window.width = 1280;
+	options.window.width = 640;
 	options.window.height = 720;
 	options.window.resizable = true;
 	options.window.msaa = 8;

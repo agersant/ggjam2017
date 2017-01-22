@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="28" tileheight="28" nextobjectid="86">
+ <objectgroup name="Object Layer 1">
+  <object id="63" name="Collect" type="pickup" x="140" y="84" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="1"/>
+   </properties>
+  </object>
+  <object id="68" name="Collect" type="pickup" x="56" y="224" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="2"/>
+   </properties>
+  </object>
+  <object id="69" name="Collect" type="pickup" x="84" y="392" width="28" height="28">
+   <properties>
+    <property name="chunk" value="1"/>
+    <property name="ent" value="3"/>
+   </properties>
+  </object>
+  <object id="70" name="Collect" type="pickup" x="252" y="476" width="28" height="28">
+   <properties>
+    <property name="chunk" value="1"/>
+    <property name="ent" value="4"/>
+   </properties>
+  </object>
+  <object id="71" name="Collect" type="pickup" x="420" y="392" width="28" height="28">
+   <properties>
+    <property name="chunk" value="1"/>
+    <property name="ent" value="5"/>
+   </properties>
+  </object>
+  <object id="72" name="Collect" type="pickup" x="476" y="308" width="28" height="28">
+   <properties>
+    <property name="chunk" value="2"/>
+    <property name="ent" value="6"/>
+   </properties>
+  </object>
+  <object id="73" name="Collect" type="pickup" x="476" y="196" width="28" height="28">
+   <properties>
+    <property name="chunk" value="2"/>
+    <property name="ent" value="7"/>
+   </properties>
+  </object>
+  <object id="74" name="Collect" type="pickup" x="392" y="84" width="28" height="28">
+   <properties>
+    <property name="chunk" value="2"/>
+    <property name="ent" value="8"/>
+   </properties>
+  </object>
+  <object id="85" name="Collect" type="pickup" x="252" y="28" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

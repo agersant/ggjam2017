@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="28" tileheight="28" nextobjectid="26">
+ <objectgroup name="Object Layer 1">
+  <object id="2" name="Collect" type="pickup" x="224" y="28" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="Collect" type="pickup" x="56" y="112" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="1"/>
+   </properties>
+  </object>
+  <object id="4" name="Collect" type="pickup" x="252" y="196" width="28" height="28">
+   <properties>
+    <property name="chunk" value="0"/>
+    <property name="ent" value="2"/>
+   </properties>
+  </object>
+  <object id="6" name="Collect" type="pickup" x="56" y="308" width="28" height="28">
+   <properties>
+    <property name="chunk" value="1"/>
+    <property name="ent" value="3"/>
+   </properties>
+  </object>
+  <object id="7" name="Collect" type="pickup" x="168" y="504" width="28" height="28">
+   <properties>
+    <property name="chunk" value="1"/>
+    <property name="ent" value="4"/>
+   </properties>
+  </object>
+  <object id="8" name="Collect" type="pickup" x="476" y="448" width="28" height="28">
+   <properties>
+    <property name="chunk" value="1"/>
+    <property name="ent" value="5"/>
+   </properties>
+  </object>
+  <object id="9" name="Collect" type="pickup" x="280" y="336" width="28" height="28">
+   <properties>
+    <property name="chunk" value="2"/>
+    <property name="ent" value="6"/>
+   </properties>
+  </object>
+  <object id="10" name="Collect" type="pickup" x="476" y="168" width="28" height="28">
+   <properties>
+    <property name="chunk" value="2"/>
+    <property name="ent" value="7"/>
+   </properties>
+  </object>
+  <object id="11" name="Collect" type="pickup" x="364" y="56" width="28" height="28">
+   <properties>
+    <property name="chunk" value="2"/>
+    <property name="ent" value="8"/>
+   </properties>
+  </object>
+  <object id="17" x="224" y="56">
+   <polyline points="0,0 -140,56"/>
+  </object>
+  <object id="18" x="84" y="112">
+   <polyline points="0,0 168,84"/>
+  </object>
+  <object id="19" x="252" y="224">
+   <polyline points="0,0 -168,84"/>
+  </object>
+  <object id="20" x="84" y="336">
+   <polyline points="0,0 84,168"/>
+  </object>
+  <object id="22" x="196" y="504">
+   <polyline points="0,0 280,-28"/>
+  </object>
+  <object id="23" x="476" y="448">
+   <polyline points="0,0 -168,-84"/>
+  </object>
+  <object id="24" x="308" y="336">
+   <polyline points="0,0 168,-140"/>
+  </object>
+  <object id="25" x="476" y="168">
+   <polyline points="0,0 -84,-84"/>
+  </object>
+ </objectgroup>
+</map>
