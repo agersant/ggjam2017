@@ -12,7 +12,7 @@ HowToPlayScene.init = function(self)
 	self._titleFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 55);
 	self._bodyFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 35);
 	self._backgroundImg = love.graphics.newImage( "assets/sprites/ui/oceanBackground.png" );
-	self._sparkyImg = love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_000.png" );
+	self._sparkyImg = love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_000.png" );
 	self._otherFishImg = love.graphics.newImage( "assets/sprites/fishA/idle/other_fish_otherfish_idle_000.png" );
 	self._script = Script:new(self, function(script)
 		script:wait(.1);
