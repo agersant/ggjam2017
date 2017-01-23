@@ -1,5 +1,8 @@
 #ggjam2017
 
+##Download the Game
+You can download the .zip file from our [Global Game Jam site](http://globalgamejam.org/2017/games/sparky-and-other-fish). It's at the very bottom of the page below the images.
+
 ##Setup Instructions
 
 - Install Love 64-bit from the [Love website](https://love2d.org/)
