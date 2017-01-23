@@ -1,7 +1,10 @@
 #ggjam2017
 
-##Download the Game
-You can download the .zip file from our [Global Game Jam site](http://globalgamejam.org/2017/games/sparky-and-other-fish). It's at the very bottom of the page below the images.
+##Play the Game
+
+You can play the game in your browser on [itch.io](https://devincurry.itch.io/sparky-and-the-other-fish)
+
+Or you can download a Windows executable in a .zip file from our [Global Game Jam site](http://globalgamejam.org/2017/games/sparky-and-other-fish). It's at the very bottom of the page below the images.
 
 ##Setup Instructions
 
