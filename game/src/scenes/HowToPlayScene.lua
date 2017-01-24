@@ -10,6 +10,7 @@ HowToPlayScene.init = function(self)
 	HowToPlayScene.super.init(self);
 	AmbientBubbles:init();
 	self._titleFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 55);
+	self._subTitle = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 23);
 	self._bodyFont = love.graphics.newFont("assets/fonts/ThatNogoFontCasual.ttf", 35);
 	self._backgroundImg = love.graphics.newImage( "assets/sprites/ui/oceanBackground.png" );
 	self._sparkyImg = love.graphics.newImage( "assets/sprites/fishB/idle/sparky_sparky_idle_000.png" );
@@ -44,8 +45,10 @@ HowToPlayScene.draw = function(self)
 
 	love.graphics.setColor(240, 228, 199, 255);
 	love.graphics.setFont(self._titleFont);
-	love.graphics.printf("HOW TO PLAY", 0, 104, 640, "center");
+	love.graphics.printf("HOW TO PLAY", 0, 84, 640, "center");
 
+	love.graphics.setFont(self._subTitle);
+	love.graphics.printf("(2 Players suggested. Single-player is only for hardcore multitaskers!)", 0, 134, 640, "center");
 	love.graphics.setFont(self._bodyFont);
 	love.graphics.printf("Sparky: Use arrow keys to collect red bubbles. Sparky can't collect green bubbles.", 128, 218, 500, "left");
 	love.graphics.printf("Other Fish: Use WASD keys to collect green bubbles. Other Fish can't collect red bubbles.", 128, 346, 500, "left");
