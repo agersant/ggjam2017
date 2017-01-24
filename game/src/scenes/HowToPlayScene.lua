@@ -36,20 +36,21 @@ HowToPlayScene.draw = function(self)
 	AmbientBubbles:draw();
 
 	--Icont next to instructions
-	love.graphics.draw( self._sparkyImg, 0, 190 );
-	love.graphics.draw( AmbientBubbles._bubbleImgs[1], 95, 252 );
-	love.graphics.draw( self._otherFishImg, 0, 318 );
-	love.graphics.draw( AmbientBubbles._bubbleImgs[2], 95, 380 );
-	love.graphics.draw( gAssets.ITEMS.bumper, 0, 470 );
+	love.graphics.draw( self._sparkyImg, 0, 210 );
+	love.graphics.draw( AmbientBubbles._bubbleImgs[1], 95, 272 );
+	love.graphics.draw( self._otherFishImg, 0, 338 );
+	love.graphics.draw( AmbientBubbles._bubbleImgs[2], 95, 400 );
+	love.graphics.draw( gAssets.ITEMS.bumper, 0, 480 );
 
 	love.graphics.setColor(240, 228, 199, 255);
 	love.graphics.setFont(self._titleFont);
 	love.graphics.printf("HOW TO PLAY", 0, 104, 640, "center");
 
 	love.graphics.setFont(self._bodyFont);
-	love.graphics.printf("Sparky: Use arrow keys to collect red bubbles.", 128, 218, 500, "left");
-	love.graphics.printf("Other Fish: Use WASD keys to collect green bubbles.", 128, 346, 500, "left");
+	love.graphics.printf("Sparky: Use arrow keys to collect red bubbles. Sparky can't collect green bubbles.", 128, 218, 500, "left");
+	love.graphics.printf("Other Fish: Use WASD keys to collect green bubbles. Other Fish can't collect red bubbles.", 128, 346, 500, "left");
 	love.graphics.printf("Both: Avoid Goobers! Collect as many bubbles as you can before the time runs out. Collecting bubbles will give you a small time bonus.", 128, 474, 500, "left");
+	love.graphics.printf("Press Space to Continue", 0, 644, 640, "center");
 end
 
 return HowToPlayScene;
