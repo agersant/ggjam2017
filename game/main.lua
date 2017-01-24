@@ -103,10 +103,10 @@ love.load = function()
 	gAssets.CHAR.bubbleA = love.graphics.newImage( "assets/sprites/bubbleA.png" );
 	gAssets.CHAR.bubbleB = love.graphics.newImage( "assets/sprites/bubbleB.png" );
 
-	gAssets.MUSIC.theme = love.audio.newSource( "assets/music/Theme.mp3" );
-	gAssets.MUSIC.hidden = love.audio.newSource( "assets/music/HiddenTheme.mp3" );
+	gAssets.MUSIC.theme = love.audio.newSource( "assets/music/Theme.ogg" );
+	gAssets.MUSIC.hidden = love.audio.newSource( "assets/music/HiddenTheme.ogg" );
 	gAssets.MUSIC.waves = love.audio.newSource( "assets/music/waves.ogg" );
-	gAssets.MUSIC.hurryUp = love.audio.newSource( "assets/music/HurryUp.mp3" );
+	gAssets.MUSIC.hurryUp = love.audio.newSource( "assets/music/HurryUp.ogg" );
 
 	gAssets.SOUND.pickup = love.audio.newSource( "assets/sfx/pickup.ogg" );
 	gAssets.SOUND.pickup:setVolume( 0.3 );
