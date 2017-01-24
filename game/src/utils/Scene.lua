@@ -60,11 +60,15 @@ Scene.playMusic = function( self, musicName, volume )
 end
 
 
+-- Fixes box2D bubble bobbing going crazy (still seems to happen sometimes)
+-- Also fixes audio dying on HTML
 function love.focus(f)
 	if f then
 		globalScene._focused = true;
+		love.audio.resume();
 	else
 		globalScene._focused = false;
+		love.audio.pause();
 	end
 end
 

@@ -7,10 +7,7 @@ You can play the game in your browser on [itch.io](https://devincurry.itch.io/sp
 Or you can download a Windows executable in a .zip file from our [Global Game Jam site](http://globalgamejam.org/2017/games/sparky-and-other-fish). It's at the very bottom of the page below the images.
 
 ##Known Issues
-* Music stops playing if you tab out of window.
-* Bubbles bob with crazy large amplitude if you tab out of window.
-
-Pretty much if you tab out of the window just close and restart the game.
+* Bubbles sometimes bob with crazy large amplitude if you tab out of window.
 
 ##Setup Instructions
 
