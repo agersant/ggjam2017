@@ -8,6 +8,8 @@ local Scene = Class("Scene");
 
 Scene.init = function(self)
 	self._canProcessSignals = true;
+	self._focused = true;
+	globalScene = self;
 end
 
 Scene.update = function(self, dt)
@@ -58,5 +60,12 @@ Scene.playMusic = function( self, musicName, volume )
 end
 
 
+function love.focus(f)
+	if f then
+		globalScene._focused = true;
+	else
+		globalScene._focused = false;
+	end
+end
 
 return Scene;

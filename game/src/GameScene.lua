@@ -123,6 +123,9 @@ GameScene.spawnEdges = function(self)
 end
 
 GameScene.update = function(self, dt)
+	if not self._focused then
+		return;
+	end
 	GameScene.super.update(self, dt);
 
 	self._timeLeft = self._timeLeft - dt;
